@@ -1,4 +1,4 @@
-FROM registry.bleacherreport.com:5000/twocents:latest
+FROM registry.bleacherreport.com:5000/elixir1.5.1:alpine
 MAINTAINER Mariko Sampaga <mariko.sampaga@bleacherreport.com>
 
 ADD . /app
