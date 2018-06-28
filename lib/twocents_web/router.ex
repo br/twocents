@@ -11,13 +11,13 @@ defmodule TwocentsWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
-     resources "/up", UpController, except: [:new, :edit]
   end
 
   scope "/", TwocentsWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/up", UpController, :index
   end
 
   # Other scopes may use custom stacks.

@@ -1,5 +1,5 @@
 defmodule Twocents.ChangesetView do
-  use Twocents.Web, :view
+  use TwocentsWeb, :view
 
   @doc """
   Traverses and translates changeset errors.

@@ -1,7 +1,6 @@
-defmodule Twocents.UpController do
-  use Twocents.Web, :controller
-
-  alias Twocents.Up
+defmodule TwocentsWeb.UpController do
+  use TwocentsWeb, :controller
+  alias Twocents.{Repo, Up}
 
   def index(conn, _params) do
     up = Repo.all(Up)
@@ -10,7 +9,6 @@ defmodule Twocents.UpController do
 
   def create(conn, %{"up" => up_params}) do
     changeset = Up.changeset(%Up{}, up_params)
-
     case Repo.insert(changeset) do
       {:ok, up} ->
         conn

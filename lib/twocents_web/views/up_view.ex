@@ -1,5 +1,5 @@
-defmodule Twocents.UpView do
-  use Twocents.Web, :view
+defmodule TwocentsWeb.UpView do
+  use TwocentsWeb, :view
 
   def render("index.json", %{up: up}) do
     %{data: render_many(up, Twocents.UpView, "up.json")}

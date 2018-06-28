@@ -1,5 +1,5 @@
 defmodule Twocents.Up do
-  use Twocents.Web, :model
+ use Ecto.Schema
 
   schema "up" do
 
@@ -10,6 +10,7 @@ defmodule Twocents.Up do
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
+    import Ecto.Changeset
     struct
     |> cast(params, [])
     |> validate_required([])
