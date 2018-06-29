@@ -1,5 +1,5 @@
 {
-  "AWSEBdockerrunVersion": "1",
+  "AWSEBDockerrunVersion": "1",
   "Image": {
       "Name": "registry.bleacherreport.com:5000/twocents:master",
       "Update": true
