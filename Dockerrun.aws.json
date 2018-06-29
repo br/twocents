@@ -15,5 +15,9 @@
       "HostDirectory": "/app/log",
       "ContainerDirectory": "/app/tmp"
     }
-  ]
+  ],
+  "Authentication": {
+        "Bucket": "docker-cfgs",
+        "Key": "brops.dockercfg"
+    }
 }
