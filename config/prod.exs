@@ -65,6 +65,6 @@ config :twocents, Twocents.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: System.get_env("POSTGRES_USERNAME") || "msampaga",
   password: System.get_env("POSTGRES_PASSWORD") || "postgres",
-  database: "moderation_prod",
+  database: "twocents_dev",
   hostname: System.get_env("POSTGRES_HOSTNAME") || "db",
   pool_size: 10
