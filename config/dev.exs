@@ -54,5 +54,5 @@ config :twocents, Twocents.Repo,
   username: "msampaga",
   password: "postgres",
   database: "twocents_dev",
-  hostname: "localhost",
+  hostname: "db",
   pool_size: 10

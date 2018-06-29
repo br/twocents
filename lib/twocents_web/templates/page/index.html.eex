@@ -1,6 +1,10 @@
 <div class="jumbotron">
   <h2><%= gettext "WELCOME TO %{name}!", name: "TWO-CENTS!" %></h2>
+<<<<<<< HEAD
   <p class="lead">A project that Mariko Sampaga<br />will be working on during her internship!.</p>
+=======
+  <p class="lead">A project that Mariko Sampaga<br />will be working on during her internship!</p>
+>>>>>>> 5647d42e92eba23659e691ac7b642e9cab1386eb
 </div>
 
 <div class="row marketing">
