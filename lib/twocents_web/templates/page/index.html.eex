@@ -1,6 +1,7 @@
 <div class="jumbotron">
   <h2><%= gettext "WELCOME TO %{name}!", name: "TWO-CENTS!" %></h2>
   <p class="lead">A project that Mariko Sampaga<br />will be working on during her internship!</p>
+  <h3> This is a test line. Can you see me?</h3>
 </div>
 
 <div class="row marketing">
