@@ -21,14 +21,14 @@ defmodule Twocents.BucketTest do
         Twocents.Bucket.put(bucket, "messi", 3)
         Twocents.Bucket.put(bucket, "ronaldo", 3)
 
-        assert twocents.Bucket.get(bucket, "messi") == 3
-        assert twocents.Bucket.get(bucket, "ronaldo") == 3
+        assert Twocents.Bucket.get(bucket, "messi") == 3
+        assert Twocents.Bucket.get(bucket, "ronaldo") == 3
 
         Twocents.Bucket.put(bucket, "messi", 4)
         Twocents.Bucket.put(bucket, "ronaldo", 4)
 
-        assert twocents.Bucket.get(bucket, "messi") == 4
-        assert twocents.Bucket.get(bucket, "ronaldo") == 4
+        assert Twocents.Bucket.get(bucket, "messi") == 4
+        assert Twocents.Bucket.get(bucket, "ronaldo") == 4
   end
 
   test "delete key from bucket", %{bucket: bucket} do
