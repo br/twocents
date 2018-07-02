@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h2><%= gettext "TEST TEST WELCOME TO %{name}!", name: "TWO-CENTS!" %></h2>
+  <h2><%= gettext "WELCOME TO %{name}!", name: "TWO-CENTS!" %></h2>
   <p class="lead">A project that Mariko Sampaga<br />will be working on during her internship!</p>
 </div>
 
