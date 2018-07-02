@@ -18,13 +18,13 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-        name: Install dependencies
-        command: |
-          apk update && apk upgrade
-          apk add --no-cache bash
-          apk add --no-cache curl
-          apk add --no-cache py-pip
-          pip install docker-compose==1.17.0
+          name: Install dependencies
+          command: |
+            apk update && apk upgrade
+            apk add --no-cache bash
+            apk add --no-cache curl
+            apk add --no-cache py-pip
+            pip install docker-compose==1.17.0
       - run: docker login -u $DOCKER_USER_PRIV -p $DOCKER_PASS_PRIV $DOCKER_PRIV_REGISTRY
       - run:
           name: Remove volumes (Not supported in CircleCI)
