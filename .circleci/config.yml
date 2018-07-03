@@ -1,0 +1,41 @@
+# Elixir CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-elixir/ for more details
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version here
+      - image: docker:17.05.0-ce-git
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/postgres:9.4
+
+    #working_directory: ~/repo
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Install dependencies
+          command: |
+            apk update && apk upgrade
+            apk add --no-cache bash
+            apk add --no-cache curl
+            apk add --no-cache py-pip
+            pip install docker-compose==1.17.0
+      - run: docker login -u $DOCKER_USER_PRIV -p $DOCKER_PASS_PRIV $DOCKER_PRIV_REGISTRY
+      - run:
+          name: Remove volumes (Not supported in CircleCI)
+          command: |
+            sed -i.bak -e '/volumes/,+1d' docker-compose.yml
+      - run: docker-compose run -e MIX_ENV=test web sh -c "mix ecto.create && mix ecto.migrate"
+      - run: docker-compose run -e MIX_ENV=test web sh -c "mix deps.get && mix coveralls"
+      - run: docker-compose run -e MIX_ENV=test web sh -c "mix credo --strict"
+      - run: docker-compose run -e MIX_ENV=test web sh -c "mix hex.outdated"
+
+      - run:
+          shell: /bin/bash
+          command: |
+            bash <(curl -s https://codecov.io/bash)
