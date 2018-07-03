@@ -4,6 +4,9 @@ services:
     image: postgres:10.4
     ports:
       -"5432"
+  web:
+    build: .
+    environment:
       - POSTGRES_USERNAME=msampaga
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_HOSTNAME=db

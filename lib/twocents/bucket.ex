@@ -2,6 +2,7 @@
 #ALLOWS THEM TO BE READ/MODIFIED BY OTHER PROCESSES
 defmodule Twocents.Bucket do
   use Agent, restart: :temporary
+  use GenServer
   @doc """
   Starts a new bucket.
   """
@@ -35,5 +36,10 @@ defmodule Twocents.Bucket do
     #AGENT PROCESS IS THE SERVER
     #EVERYTHING OUTSIDE FUNCTION HAPPENING IN CLIENT
   end
+
+  #Lists all nodes and replies within specified server
+#  def list_all(bucket) do
+#    GenServer.multi_call(bucket, :pop)
+#  end
 
 end
