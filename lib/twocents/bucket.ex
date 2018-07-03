@@ -2,7 +2,7 @@
 #ALLOWS THEM TO BE READ/MODIFIED BY OTHER PROCESSES
 defmodule Twocents.Bucket do
   use Agent, restart: :temporary
-  use GenServer
+  #use GenServer
   @doc """
   Starts a new bucket.
   """
