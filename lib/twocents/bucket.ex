@@ -1,6 +1,10 @@
 #RESPONSIBLE FOR STORING KEY-VALUE ENTRIES
 #ALLOWS THEM TO BE READ/MODIFIED BY OTHER PROCESSES
 defmodule Twocents.Bucket do
+  @moduledoc """
+  Two-Cents Bucket
+  """
+
   use Agent, restart: :temporary
   #use GenServer
   @doc """

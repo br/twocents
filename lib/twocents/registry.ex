@@ -1,4 +1,8 @@
 defmodule Twocents.Registry do
+  @moduledoc """
+  Two-Cents Registry
+  """
+
   use GenServer
 
   ## Client API

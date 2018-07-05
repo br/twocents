@@ -1,4 +1,8 @@
 defmodule Twocents.Application do
+  @moduledoc """
+  Two-Cents Application
+  """
+
   use Application
 
   # See https://hexdocs.pm/elixir/Application.html
