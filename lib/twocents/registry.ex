@@ -44,7 +44,6 @@ Stops the registry.
     {:ok, {names, refs}}
   end
 
-
   def handle_call({:create, name}, _from, {names, refs}) do
     case lookup(names, name) do
       {:ok, pid} ->

@@ -7,7 +7,8 @@ defmodule Twocents.Supervisor do
 
   def init(:ok) do
     children = [
-      {DynamicSupervisor, name: Twocents.BucketSupervisor, strategy: :one_for_one},
+      {DynamicSupervisor,
+       name: Twocents.BucketSupervisor, strategy: :one_for_one},
       {Twocents.Registry, name: Twocents.Registry}
     ]
 
