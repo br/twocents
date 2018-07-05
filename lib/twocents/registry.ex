@@ -50,7 +50,9 @@ Stops the registry.
       {:ok, pid} ->
         {:reply, pid, {names, refs}}
       :error ->
-          {:ok, pid} = DynamicSupervisor.start_child(Twocents.BucketSupervisor, Twocents.Bucket)
+          {:ok, pid} =
+            DynamicSupervisor.start_child(Twocents.BucketSupervisor,
+                                          Twocents.Bucket)
           ref = Process.monitor(pid)
           refs = Map.put(refs, ref, name)
           :ets.insert(names, {name, pid})
