@@ -39,7 +39,7 @@ Stops the registry.
   def stop(server) do
     GenServer.stop(server)
   end
-  
+
   ## Server Callbacks
 
   def init(table) do
