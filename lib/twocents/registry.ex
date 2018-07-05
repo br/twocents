@@ -39,14 +39,7 @@ Stops the registry.
   def stop(server) do
     GenServer.stop(server)
   end
-
-  @doc """
-  Lists all nodes in server.
-  """
-  def call_all(server) do
-    GenServer.multi_call(server, :pop)
-  end
-
+  
   ## Server Callbacks
 
   def init(table) do
