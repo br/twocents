@@ -40,10 +40,4 @@ defmodule Twocents.Bucket do
     #AGENT PROCESS IS THE SERVER
     #EVERYTHING OUTSIDE FUNCTION HAPPENING IN CLIENT
   end
-
-  #Lists all nodes and replies within specified server
-#  def list_all(bucket) do
-#    GenServer.multi_call(bucket, :pop)
-#  end
-
 end
