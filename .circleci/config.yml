@@ -31,7 +31,7 @@ jobs:
           command: |
             sed -i.bak -e '/volumes/,+1d' docker-compose.yml
       - run: docker-compose build --build-arg MIX_ENV=test web
-      - run: docker-compose run -e MIX_ENV=test web sh -c "dockerize -wait tcp://db:5432"
+    #  - run: docker-compose run -e MIX_ENV=test web sh -c "dockerize -wait tcp://db:5432"
       - run: docker-compose run -e MIX_ENV=test web sh -c "mix ecto.create && mix ecto.migrate"
       - run: docker-compose run -e MIX_ENV=test web sh -c "mix deps.get && mix coveralls"
       - run: docker-compose run -e MIX_ENV=test web sh -c "mix credo --strict"
