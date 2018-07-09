@@ -18,6 +18,7 @@ defmodule TwocentsWeb.Router do
 
     get "/", PageController, :index
     get "/up", UpController, :index
+    resources "/polls", PollController
   end
 
   # Other scopes may use custom stacks.

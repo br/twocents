@@ -50,9 +50,9 @@ config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
 config :twocents, Twocents.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "msampaga",
-  password: "postgres",
-  database: "twocents_dev",
-  hostname: "db",
-  pool_size: 10
+ adapter: Ecto.Adapters.Postgres,
+ username: "msampaga",
+ password: "postgres",
+ database: "twocents_dev",
+ hostname: "localhost",
+ pool_size: 10
