@@ -8,4 +8,10 @@ defmodule Twocents.Repo do
   def init(_, opts) do
     {:ok, Keyword.put(opts, :url, System.get_env("DATABASE_URL"))}
   end
+  adapter: Ecto.Adapters.Postgres,
+  username: "msampaga",
+  password: "postgres",
+  database: "twocents_dev",
+  hostname: "localhost",
+  pool_size: 10
 end
