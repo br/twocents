@@ -19,7 +19,7 @@ export class Poll {
   }
   _cloneChoice() {
     // Clone the top choice
-    var newChoice = $("#choices .choice:first").clone()
+    let newChoice = $("#choices .choice:first").clone()
     // Reset its value to blank
     newChoice.find("input[type=text]").val("")
     // And then throw it into the choice list
@@ -27,3 +27,4 @@ export class Poll {
     // And then focus that text choice
     newChoice.find("input[type=text]").focus()
   }
+}

@@ -25,4 +25,4 @@
   </tbody>
 </table>
 
-<span><%= link "New poll", to: poll_path(@conn, :new) %></span>
+<span><%= link "New Poll", to: poll_path(@conn, :new) %></span>
