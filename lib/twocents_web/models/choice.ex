@@ -1,7 +1,7 @@
 defmodule Twocents.Choice do
   use Ecto.Schema
   import Ecto.Changeset
-
+  use TwocentsWeb, :model
 
   schema "choices" do
     field :title, :string
@@ -11,10 +11,12 @@ defmodule Twocents.Choice do
     timestamps()
   end
 
+  @required_fields ~w(title votes)
+  @optional_fields ~w()
+
   @doc false
-  def changeset(choice, attrs) do
-    choice
-    |> cast(attrs, [:title, :votes])
-    |> validate_required([:title, :votes])
+  def changeset(model, params \\ :empty) do
+    model
+    |> cast(params, @required_fields, @optional_fields)
   end
 end

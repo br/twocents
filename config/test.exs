@@ -12,7 +12,7 @@ config :logger, level: :warn
 # Configure your database
 config :twocents, Twocents.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
+  username: "msampaga",
   password: "postgres",
   database: "twocents_test",
   hostname: "localhost",

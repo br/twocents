@@ -1,7 +1,12 @@
 defmodule TwocentsWeb.PollController do
   use TwocentsWeb, :controller
+  import Ecto.Query
+
   alias Twocents.Repo
   alias Twocents.Poll
+  alias Twocents.Choice
+
+  plug :scrub_params, "poll" when action in [:create, :update]
 
   def index(conn, _params) do
     polls = Repo.all(Poll)
@@ -14,20 +19,36 @@ defmodule TwocentsWeb.PollController do
   end
 
   def create(conn, %{"poll" => poll_params}) do
-    changeset = Poll.changeset(%Poll{}, poll_params)
-
-    case Repo.insert(changeset) do
-      {:ok, poll} ->
+    case create_poll(poll_params) do
+      {:ok, _poll} ->
         conn
         |> put_flash(:info, "Poll created successfully.")
-        |> redirect(to: poll_path(conn, :show, poll))
+        |> redirect(to: poll_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
   end
 
+  defp create_poll(poll_params) do
+    Repo.transaction fn ->
+      changeset = Poll.changeset(%Poll{}, poll_params)
+
+      case Repo.insert(changeset) do
+        {:ok, poll} ->
+        Enum.map poll_params["choices"], fn choice ->
+          choice = Ecto.build_assoc(poll, :choices, %{title: choice})
+          Repo.insert! choice
+        end
+        {:error, changeset} ->
+          Repo.rollback changeset
+      end
+    end
+  end
+
   def show(conn, %{"id" => id}) do
-    poll = Repo.get!(Poll, id)
+    choice_query = from c in Choice, order_by: [asc: c.id]
+    poll_query  = from p in Poll, preload: [choices: ^choice_query]
+    poll = Repo.get!(poll_query, id)
     render(conn, "show.html", poll: poll)
   end
 
