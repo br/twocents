@@ -1,4 +1,4 @@
-<h2>Show poll</h2>
+<h2>Show Poll</h2>
 <input type="hidden" id="poll-id" value="<%= @poll.id %>">
 
 <div class="col-xs-8">
