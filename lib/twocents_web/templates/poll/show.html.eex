@@ -3,7 +3,7 @@
 <ul>
 
   <li>
-    <strong>Title:</strong>
+    <strong>Question:</strong>
     <%= @poll.title %>
   </li>
 

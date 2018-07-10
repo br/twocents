@@ -17,6 +17,28 @@
     <%= error_tag f, :closed %>
   </div>
 
+  <div class="row">
+      <div class="col-xs-8">
+        <h4>Choices</h4>
+      </div>
+      <div class="col-xs-4 text-right">
+        <a id="add-choice" class="btn btn-primary">Add Choice</a>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div id="choices">
+        <div class="choice row">
+          <div class="col-xs-10">
+            <input type="text" class="form-control" placeholder="Choice Text" name="poll[choices][]">
+          </div>
+          <div class="col-xs-2">
+            <a class="btn btn-danger remove-choice">Remove</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
