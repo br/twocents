@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/br/twocents.svg?style=svg)](https://circleci.com/gh/br/twocents)
 # TwoCents
 
 TwoCents is a polling service.
