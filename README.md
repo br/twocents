@@ -2,9 +2,9 @@
 
 TwoCents is a polling service.
 
-##Using TwoCents
+## Using TwoCents
 
-###Local Machine
+### Local Machine
 To start your Phoenix app:
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
@@ -12,8 +12,8 @@ To start your Phoenix app:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-###Docker
-####Development
+### Docker
+#### Development
 
-####Deploy
+#### Deploy
 Use [Jenkins](https://statmilk.atlassian.net/wiki/display/ENG/Jenkins+Deploy).
