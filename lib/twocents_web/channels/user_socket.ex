@@ -3,7 +3,8 @@ defmodule TwocentsWeb.UserSocket do
 
   ## Channels
   # channel "room:*", TwocentsWeb.RoomChannel
-
+  channel "polls:*", Twocents.PollChannel
+  
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
   # transport :longpoll, Phoenix.Transports.LongPoll

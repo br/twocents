@@ -1,4 +1,4 @@
-defmodule Twocents.ChoiceTest
+defmodule Twocents.ChoiceTest do
   use Twocents.ModelCase
 
   alias Twocents.Choice
@@ -7,7 +7,7 @@ defmodule Twocents.ChoiceTest
   @invalid_attrs %{}
 
   setup do
-    poll = %Poll{title: "Hello World" |> Repo.insert!
+    poll = %Poll{title: "Hello World"} |> Repo.insert!
     %Choice{title: "Hello to you too!", poll_id: poll.id }
     |> Repo.insert!
     %Choice{title: "How are you doing?", poll_id: poll.id }
@@ -23,3 +23,4 @@ defmodule Twocents.ChoiceTest
 
     assert Enum.count(poll.choices) == 2
   end
+end
