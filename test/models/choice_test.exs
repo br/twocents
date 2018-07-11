@@ -1,7 +1,10 @@
 defmodule Twocents.ChoiceTest do
   use Twocents.ModelCase
+  use ExUnit.Case
 
   alias Twocents.Choice
+  alias Twocents.Poll
+  alias Twocents.Repo
 
   @valid_attrs %{votes: 42, title: "some title"}
   @invalid_attrs %{}
@@ -16,7 +19,7 @@ defmodule Twocents.ChoiceTest do
     {:ok, poll: poll}
   end
 
-  test "retreive choice counts", context do
+  test "retrieve choice counts", context do
     poll = Poll
     |> Repo.get(context[:poll].id)
     |> Repo.preload(:choices)
