@@ -18,6 +18,10 @@ export class Poll {
     $(event.currentTarget).parents(".choice").remove()
   }
   _cloneChoice() {
+    // Limits choices to 4
+    if ($("#choices .form-control").length >= 4){
+      return
+    }
     // Clone the top choice
     let newChoice = $("#choices .choice:first").clone()
     // Reset its value to blank

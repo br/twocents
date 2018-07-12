@@ -35,16 +35,10 @@
         <div class="col-xs-10">
           <input type="text" class="form-control" placeholder="Choice Text" name="poll[choices][]">
         </div>
-        <div class="col-xs-2">
-          <a class="btn btn-danger remove-choice">Remove</a>
-        </div>
       </div>
       <div class="choice row">
         <div class="col-xs-10">
           <input type="text" class="form-control" placeholder="Choice Text" name="poll[choices][]">
-        </div>
-        <div class="col-xs-2">
-          <a class="btn btn-danger remove-choice">Remove</a>
         </div>
       </div>
     </div>
