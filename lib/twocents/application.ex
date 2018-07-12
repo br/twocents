@@ -1,6 +1,6 @@
 defmodule Twocents.Application do
   @moduledoc """
-  Two-Cents Application
+  TwoCents Application
   """
 
   use Application

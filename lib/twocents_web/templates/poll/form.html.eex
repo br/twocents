@@ -11,7 +11,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :title, "Title", class: "control-label" %>
+    <%= label f, :title, "Question", class: "control-label" %>
     <%= text_input f, :title, class: "form-control" %>
   </div>
 
