@@ -46,7 +46,7 @@ defmodule TwocentsWeb.PollController do
   end
 
   def show(conn, %{"id" => id}) do
-    choice_query = from c in Choice, order_by: [asc: c.id]
+    choice_query = from c in Choice, order_by: [asc: c.id], limit: 4
     poll_query  = from p in Poll, preload: [choices: ^choice_query]
     poll = Repo.get!(poll_query, id)
     render(conn, "show.html", poll: poll)
