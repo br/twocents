@@ -14,6 +14,13 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ### Docker
 #### Development
-
+    docker-compose build
+    docker-compose run web mix do ecto.create, ecto.migrate
+    docker-compose run web mix run priv/repo/seeds.exs
+    docker-compose up
+#### Test
+    docker-compose build
+    docker-compose run -e MIX_ENV=test web mix do ecto.create, ecto.migrate
+    docker-compose run -e MIX_ENV=test web sh -c "mix test"
 #### Deploy
 Use [Jenkins](https://statmilk.atlassian.net/wiki/display/ENG/Jenkins+Deploy).
