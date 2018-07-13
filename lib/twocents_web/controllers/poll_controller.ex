@@ -85,5 +85,4 @@ defmodule TwocentsWeb.PollController do
     |> put_flash(:info, "Poll deleted successfully.")
     |> redirect(to: poll_path(conn, :index))
   end
-  end
 end
