@@ -1,4 +1,7 @@
 defmodule Twocents.Poll do
+  @moduledoc """
+  TwoCents Poll
+  """
   use TwocentsWeb, :model
   use Ecto.Schema
 

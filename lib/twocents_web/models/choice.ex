@@ -1,4 +1,7 @@
 defmodule Twocents.Choice do
+  @moduledoc """
+  TwoCents Choice
+  """
   use Ecto.Schema
   import Ecto.Changeset
   use TwocentsWeb, :model

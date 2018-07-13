@@ -1,4 +1,7 @@
 defmodule Twocents.Supervisor do
+  @moduledoc """
+  TwoCents Supervisor
+  """
   use Supervisor
 
   def start_link(opts) do

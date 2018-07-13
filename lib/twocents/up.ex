@@ -1,4 +1,7 @@
 defmodule Twocents.Up do
+  @moduledoc """
+  TwoCents Up
+  """
  use Ecto.Schema
 
   schema "up" do
