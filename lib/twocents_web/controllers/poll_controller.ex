@@ -46,6 +46,7 @@ defmodule TwocentsWeb.PollController do
           Repo.rollback changeset
       end
     end
+  end
 
   def show(conn, %{"id" => id}) do
     choice_query = from c in Choice, order_by: [asc: c.id], limit: 4
