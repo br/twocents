@@ -21,5 +21,6 @@ defmodule Twocents.Poll do
     model
     |> cast(params, [:title, :closed])
     |> validate_required([:title, :closed])
+    #|>validate_number(changeset, :choice, greater_than: 1, less_than: 5)
   end
 end
