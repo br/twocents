@@ -41,12 +41,12 @@ defmodule TwocentsWeb.PollController do
         Enum.map poll_params["choices"], fn choice ->
           choice = Ecto.build_assoc(poll, :choices, %{title: choice})
           Repo.insert! choice
-        end
+        end #fn end
         {:error, changeset} ->
           Repo.rollback changeset
-      end
-    end
-  end
+      end #do end
+    end #fn end
+  end #do end
 
   def show(conn, %{"id" => id}) do
     choice_query = from c in Choice, order_by: [asc: c.id], limit: 4
