@@ -12,8 +12,6 @@ defmodule Twocents.Application do
 
     # Define workers and child supervisors to be supervised
     children = [
-      # Start the Ecto repository
-      #supervisor(Twocents.Repo, []),
       # Start the endpoint when the application starts
       supervisor(TwocentsWeb.Endpoint, []),
       #START THE ECTO REPOSITORY

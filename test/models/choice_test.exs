@@ -2,9 +2,7 @@ defmodule Twocents.ChoiceTest do
   use Twocents.ModelCase
   use ExUnit.Case
 
-  alias Twocents.Choice
-  alias Twocents.Poll
-  alias Twocents.Repo
+  alias Twocents.{Choice, Poll, Repo}
 
   @valid_attrs %{votes: 42, title: "some title"}
   @invalid_attrs %{}
