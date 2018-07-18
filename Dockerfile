@@ -22,7 +22,7 @@ RUN apk --update --no-cache add --virtual .app-build make && \
     apk del .app-build
 
 RUN brew update && \
-    Brew install \
+    brew install \
     nodejs \
     imagemagick \
     npm
