@@ -21,11 +21,11 @@ RUN apk --update --no-cache add --virtual .app-build make && \
     apk add postgresql-client && \
     apk del .app-build
 
-RUN apk update && \
-    apk install \
-    nodejs \
-    imagemagick \
-    npm
+    RUN apt-get -y update && \
+        apt-get install -y \
+        nodejs \
+        imagemagick \
+        npm
 
 RUN npm install brunch -g && brunch build --production assets/
 
