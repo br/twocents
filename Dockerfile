@@ -21,9 +21,9 @@ RUN apk --update --no-cache add --virtual .app-build make && \
     apk add postgresql-client && \
     apk del .app-build
 
-RUN apt-get -y update && \
+RUN apk -y update && \
     curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-    apt-get install -y \
+    apk install -y \
     vim \
     telnet \
     htop \
@@ -31,7 +31,8 @@ RUN apt-get -y update && \
     net-tools \
     nodejs \
     libelf1 \
-    imagemagick
+    imagemagick \
+    npm
 
 RUN npm install brunch -g && brunch build --production assets/
 
