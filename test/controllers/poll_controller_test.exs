@@ -1,5 +1,5 @@
 defmodule Twocents.PollControllerTest do
-  use Twocents.ConnCase
+  use TwocentsWeb.ConnCase
 
   alias Twocents.Poll
   @valid_attrs %{closed: true, title: "some title"}
@@ -19,6 +19,7 @@ defmodule Twocents.PollControllerTest do
     conn = post conn, poll_path(conn, :create), poll: @valid_attrs
     poll = Repo.get_by!(Poll, @valid_attrs)
     assert redirected_to(conn) == poll_path(conn, :show, poll.id)
+    assert poll.title == "some title"
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do

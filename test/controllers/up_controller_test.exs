@@ -1,5 +1,5 @@
 defmodule Twocents.UpControllerTest do
-  use Twocents.ConnCase
+  use TwocentsWeb.ConnCase
 
   alias Twocents.Up
   @valid_attrs %{}

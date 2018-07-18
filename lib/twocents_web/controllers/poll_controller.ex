@@ -28,7 +28,7 @@ defmodule TwocentsWeb.PollController do
   end
 
   def create(conn, %{"poll" => poll_params}) do
-    IO.inspect poll_params
+    #IO.inspect poll_params
     case create_poll(poll_params) do
       {:ok, _poll} ->
         conn

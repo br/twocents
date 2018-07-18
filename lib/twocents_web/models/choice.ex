@@ -22,5 +22,6 @@ defmodule Twocents.Choice do
     model
     |> cast(params, @required_fields, @optional_fields)
     |> validate_required([:title])
+    |> unique_constraint(:title)
   end
 end

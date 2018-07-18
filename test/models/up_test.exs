@@ -1,5 +1,5 @@
 defmodule Twocents.UpTest do
-  use Twocents.ModelCase
+  use Twocents.DataCase
 
   alias Twocents.Up
 

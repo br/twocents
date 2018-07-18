@@ -1,5 +1,5 @@
 defmodule Twocents.ChoiceTest do
-  use Twocents.ModelCase
+  use Twocents.DataCase
   use ExUnit.Case
 
   alias Twocents.{Choice, Poll, Repo}
