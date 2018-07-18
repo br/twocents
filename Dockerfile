@@ -24,7 +24,6 @@ RUN apk --update --no-cache add --virtual .app-build make && \
     RUN apk update && \
         apk install \
         nodejs \
-        imagemagick \
         npm
 
 RUN npm install brunch -g && brunch build --production assets/
