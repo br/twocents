@@ -22,7 +22,6 @@ RUN apk --update --no-cache add --virtual .app-build make && \
     apk del .app-build
 
 RUN apk -y update && \
-    curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
     apk install -y \
     vim \
     telnet \
