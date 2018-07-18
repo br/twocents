@@ -23,13 +23,7 @@ RUN apk --update --no-cache add --virtual .app-build make && \
 
 RUN apk -y update && \
     apk install -y \
-    vim \
-    telnet \
-    htop \
-    strace \
-    net-tools \
     nodejs \
-    libelf1 \
     imagemagick \
     npm
 
