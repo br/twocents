@@ -21,8 +21,8 @@ RUN apk --update --no-cache add --virtual .app-build make && \
     apk add postgresql-client && \
     apk del .app-build
 
-RUN brew update && \
-    brew install \
+RUN apk update && \
+    apk install \
     nodejs \
     imagemagick \
     npm
