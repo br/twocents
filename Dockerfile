@@ -24,6 +24,11 @@ RUN apk --update --no-cache add --virtual .app-build make && \
 RUN apk update && \
     apk add nodejs-npm
 
+ENV DOCKERIZE_VERSION v0.6.1
+RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
 RUN npm install brunch -g && brunch build --production assets/
 
 CMD ["mix", "phoenix.server"]
