@@ -22,7 +22,7 @@ RUN apk --update --no-cache add --virtual .app-build make && \
     apk del .app-build
 
 RUN apk update && \
-    apk install nodejs-npm
+    apk add nodejs-npm
 
 RUN npm install brunch -g && brunch build --production assets/
 
