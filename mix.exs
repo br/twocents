@@ -42,9 +42,15 @@ defmodule Twocents.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
+<<<<<<< HEAD
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.8.10", runtime: false},
       {:excoveralls, "~> 0.7.5"}
+=======
+      {:ecto, "~> 2.0"},
+      {:cowboy, "~> 1.0"},
+      {:credo, "~> 0.8.10", runtime: false}
+>>>>>>> master
     ]
   end
 

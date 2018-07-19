@@ -25,7 +25,11 @@ defmodule TwocentsWeb.UserSocket do
   end
 
   # Socket id's are topics that allow you to
+<<<<<<< HEAD
   # identify all sockets for a given user:
+=======
+  #identify all sockets for a given user:
+>>>>>>> master
   #     def id(socket), do: "user_socket:#{socket.assigns.user_id}"
   #
   # Would allow you to broadcast a "disconnect" event and terminate
