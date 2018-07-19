@@ -4,7 +4,7 @@ defmodule Twocents.Poll do
   """
   use TwocentsWeb, :model
   use Ecto.Schema
-
+  import Ecto.Changeset
   schema "polls" do
     field :title, :string
     field :closed, :boolean, default: false
