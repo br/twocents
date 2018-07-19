@@ -1,5 +1,6 @@
 defmodule TwocentsWeb.PollView do
   use TwocentsWeb, :view
+  alias TwocentsWeb.ChoiceView
 
   def render("index.json", %{polls: polls}) do
     %{data: render_many(polls, TwocentsWeb.PollView, "poll.json")}
@@ -13,10 +14,7 @@ defmodule TwocentsWeb.PollView do
     %{
       title: poll.title,
       id: poll.id,
-      closed: poll.closed,
-      choices: %{
-        #Twocents.Repo.preload(Twocents.Repo.get(Twocents.Poll, poll.id), :choices)
-      }
+      choices: render_many(poll.choices, ChoiceView, "choice.json")
     }
   end
 end

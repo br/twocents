@@ -11,8 +11,6 @@ defmodule TwocentsWeb.PollController do
   plug :scrub_params, "poll" when action in [:create, :update]
 
   def index(conn, _params) do
-    # polls = Repo.all(Poll)
-    # render(conn, "index.html", polls: polls)
     polls = Poll
     |> Repo.all()
     |> Repo.preload([:choices])
@@ -29,12 +27,10 @@ defmodule TwocentsWeb.PollController do
   end
 
   def create(conn, %{"poll" => poll_params}) do
-    #IO.inspect poll_params
     changeset = Poll.changeset(%Poll{}, poll_params)
     case Repo.insert(changeset) do
       {:ok, _poll} ->
         conn
-       #|> put_flash(:info, "Poll created successfully.")
         |> redirect(to: poll_path(conn, :index))
       {:error, changeset} ->
         render(conn, "index.json", changeset: changeset)
@@ -43,20 +39,7 @@ defmodule TwocentsWeb.PollController do
 
   def create_poll(poll_params) do
       changeset = Poll.changeset(%Poll{}, poll_params)
-
       poll = Repo.insert!(changeset)
-      # IO.inspect poll
-      # choice = Ecto.build_assoc(poll, :choices, %{title: poll_params["choices"]["title"]})
-      # Repo.insert!(choice)
-      # Enum.map poll_params["choices"], fn choice ->
-      #     choice = Ecto.build_assoc(poll, :choices, %{title: choice})
-      #        Repo.insert! choice
-      #      end)
-    #  |> build_assoc(:choices)
-    #  |> Twocents.changeset(poll_params["choices"])
-      # choices = Ecto.build_assoc(changeset, :choices, %{title: choice})
-      # Repo.insert!(choices)
-    
   end
 
   def show(conn, %{"id" => id}) do
@@ -88,9 +71,6 @@ defmodule TwocentsWeb.PollController do
 
   def delete(conn, %{"id" => id}) do
     poll = Repo.get!(Poll, id)
-
-    # Here we use delete! (with a bang) because we expect
-    # it to always work (and if it does not, it will raise).
     Repo.delete!(poll)
 
     conn
