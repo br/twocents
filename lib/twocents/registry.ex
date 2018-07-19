@@ -1,4 +1,8 @@
 defmodule Twocents.Registry do
+  @moduledoc """
+  Two-Cents Registry
+  """
+
   use GenServer
 
   ## Client API
@@ -44,13 +48,14 @@ Stops the registry.
     {:ok, {names, refs}}
   end
 
-
   def handle_call({:create, name}, _from, {names, refs}) do
     case lookup(names, name) do
       {:ok, pid} ->
         {:reply, pid, {names, refs}}
       :error ->
-          {:ok, pid} = DynamicSupervisor.start_child(Twocents.BucketSupervisor, Twocents.Bucket)
+          {:ok, pid} =
+            DynamicSupervisor.start_child(Twocents.BucketSupervisor,
+                                          Twocents.Bucket)
           ref = Process.monitor(pid)
           refs = Map.put(refs, ref, name)
           :ets.insert(names, {name, pid})

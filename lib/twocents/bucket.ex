@@ -1,7 +1,12 @@
 #RESPONSIBLE FOR STORING KEY-VALUE ENTRIES
 #ALLOWS THEM TO BE READ/MODIFIED BY OTHER PROCESSES
 defmodule Twocents.Bucket do
+  @moduledoc """
+  Two-Cents Bucket
+  """
+
   use Agent, restart: :temporary
+  #use GenServer
   @doc """
   Starts a new bucket.
   """
@@ -35,5 +40,4 @@ defmodule Twocents.Bucket do
     #AGENT PROCESS IS THE SERVER
     #EVERYTHING OUTSIDE FUNCTION HAPPENING IN CLIENT
   end
-
 end

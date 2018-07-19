@@ -1,5 +1,5 @@
 {
-  "AWSEBdockerrunVersion": "1",
+  "AWSEBDockerrunVersion": "1",
   "Image": {
       "Name": "registry.bleacherreport.com:5000/twocents:master",
       "Update": true
@@ -15,5 +15,9 @@
       "HostDirectory": "/app/log",
       "ContainerDirectory": "/app/tmp"
     }
-  ]
+  ],
+  "Authentication": {
+        "Bucket": "docker-cfgs",
+        "Key": "brops.dockercfg"
+    }
 }

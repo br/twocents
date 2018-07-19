@@ -13,7 +13,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    #working_directory: ~/repo
+    #working_directory: ~/repo #test
     steps:
       - checkout
       - setup_remote_docker
@@ -31,11 +31,11 @@ jobs:
           command: |
             sed -i.bak -e '/volumes/,+1d' docker-compose.yml
       - run: docker-compose build --build-arg MIX_ENV=test web
-    #  - run: docker-compose run -e MIX_ENV=test web sh -c "dockerize -wait tcp://db:5432"
-    #  - run: docker-compose run -e MIX_ENV=test web sh -c "mix ecto.create && mix ecto.migrate"
-      - run: docker-compose run -e MIX_ENV=test web sh -c "mix deps." #" && mix coveralls"
-      - run: docker-compose run -e MIX_ENV=test web sh -c "mix credo --strict"
-    #  - run: docker-compose run -e MIX_ENV=test web sh -c "mix hex.outdated"
+      #- run: docker-compose run -e MIX_ENV=test web sh -c "dockerize -wait tcp://db:5432"
+      - run: docker-compose run -e MIX_ENV=test web sh -c "mix ecto.create && mix ecto.migrate"
+      - run: docker-compose run -e MIX_ENV=test web sh -c "mix deps.get && mix coveralls"
+      - run: docker-compose run -e MIX_ENV=test web sh -c "mix credo"
+      - run: docker-compose run -e MIX_ENV=test web sh -c "mix hex.outdated || true"
 
       - run:
           shell: /bin/bash

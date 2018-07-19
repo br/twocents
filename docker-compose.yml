@@ -12,8 +12,9 @@ services:
       - 4000:4000
     links:
       - db
+    depends_on:
+      - db
     environment:
-      - TWOCENTS_HOST=http://two-cents.1bleacherreport.com/
       - POSTGRES_USERNAME=msampaga
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_HOSTNAME=db
