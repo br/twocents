@@ -21,7 +21,7 @@ defmodule Twocents.Poll do
     model
     |> cast(params, [:title, :closed])
     |> validate_required([:title, :closed])
-    |> unsafe_validate_unique(:title)
+    |> unique_constraint(:title)
     |> cast_assoc(:choices)
   end
 end
