@@ -5,6 +5,7 @@ defmodule TwocentsWeb.PollController do
   use TwocentsWeb, :controller
   import Ecto.Query
   import Ecto.Changeset
+
   alias Twocents.{Repo, Poll, Choice}
 
   plug :scrub_params, "poll" when action in [:create, :update]
@@ -29,39 +30,33 @@ defmodule TwocentsWeb.PollController do
 
   def create(conn, %{"poll" => poll_params}) do
     #IO.inspect poll_params
-    case create_poll(poll_params) do
+    changeset = Poll.changeset(%Poll{}, poll_params)
+    case Repo.insert(changeset) do
       {:ok, _poll} ->
         conn
-        #|> put_flash(:info, "Poll created successfully.")
+       #|> put_flash(:info, "Poll created successfully.")
         |> redirect(to: poll_path(conn, :index))
       {:error, changeset} ->
         render(conn, "index.json", changeset: changeset)
     end
   end
 
-  # defp create_poll(poll_params) do
-  #   Repo.transaction fn ->
-  #     changeset = Poll.changeset(%Poll{}, poll_params)
-  #
-  #     case Repo.insert(changeset) do
-  #       {:ok, poll} ->
-  #       Enum.map poll_params["choices"], fn choice ->
-  #         choice = Ecto.build_assoc(poll, :choices, %{title: choice})
-  #         Repo.insert! choice
-  #       end #fn end
-  #       {:error, changeset} ->
-  #         Repo.rollback changeset
-  #     end #do end
-  #   end #fn end
-  # end #do end
-
   def create_poll(poll_params) do
-    Repo.transaction fn ->
       changeset = Poll.changeset(%Poll{}, poll_params)
-      Repo.insert!(changeset)
-      choices = Ecto.build_assoc(changeset, :choices)
-      Repo.insert!(choices)
-    end
+
+      poll = Repo.insert!(changeset)
+      # IO.inspect poll
+      # choice = Ecto.build_assoc(poll, :choices, %{title: poll_params["choices"]["title"]})
+      # Repo.insert!(choice)
+      # Enum.map poll_params["choices"], fn choice ->
+      #     choice = Ecto.build_assoc(poll, :choices, %{title: choice})
+      #        Repo.insert! choice
+      #      end)
+    #  |> build_assoc(:choices)
+    #  |> Twocents.changeset(poll_params["choices"])
+      # choices = Ecto.build_assoc(changeset, :choices, %{title: choice})
+      # Repo.insert!(choices)
+    
   end
 
   def show(conn, %{"id" => id}) do

@@ -15,9 +15,7 @@ defmodule TwocentsWeb.PollView do
       id: poll.id,
       closed: poll.closed,
       choices: %{
-        #Twocents.Repo.preload
-        #(Twocents.Repo.get(Twocents.Poll,
-        # poll.id), :choices)
+        #Twocents.Repo.preload(Twocents.Repo.get(Twocents.Poll, poll.id), :choices)
       }
     }
   end
