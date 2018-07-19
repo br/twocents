@@ -5,6 +5,14 @@ defmodule Twocents.PollControllerTest do
   @valid_attrs %{closed: true, title: "some title"}
   @invalid_attrs %{}
 
+  setup %{conn: conn} do
+    conn =
+      conn
+      |> bypass_through(TwocentsWeb.Router, :browser)
+      |> get("/")
+    {:ok, %{conn: conn}}
+  end
+
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, poll_path(conn, :index)
     #assert html_response(conn, 200) =~ "Listing Polls"

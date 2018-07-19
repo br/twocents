@@ -4,7 +4,7 @@ defmodule TwocentsWeb.PollController do
   """
   use TwocentsWeb, :controller
   import Ecto.Query
-
+  import Ecto.Changeset
   alias Twocents.{Repo, Poll, Choice}
 
   plug :scrub_params, "poll" when action in [:create, :update]
@@ -35,7 +35,7 @@ defmodule TwocentsWeb.PollController do
         #|> put_flash(:info, "Poll created successfully.")
         |> redirect(to: poll_path(conn, :index))
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "index.json", changeset: changeset)
     end
   end
 
