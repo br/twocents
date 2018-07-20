@@ -4,6 +4,6 @@ defmodule Twocents.UpControllerTest do
   test "/up", %{conn: conn} do
     conn = get conn, "/up"
     response = json_response(conn, 200)
-    assert Map.has_key?(response, "data")
+    assert Map.has_key?(response, "operational")
   end
 end
