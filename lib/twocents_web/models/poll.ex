@@ -23,5 +23,6 @@ defmodule Twocents.Poll do
     |> validate_required([:title, :closed])
     |> unique_constraint(:title)
     |> cast_assoc(:choices)
+    |> validate_length(:choices, min: 2, max: 4)
   end
 end
