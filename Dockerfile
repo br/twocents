@@ -11,7 +11,7 @@ EXPOSE 4000
 
 ENV PORT 4000
 
-ENV MIX_ENV prod
+ENV MIX_ENV dev
 
 RUN apk --update --no-cache add --virtual .app-build make && \
     apk --update --no-cache add git && \
