@@ -25,7 +25,7 @@ defmodule TwocentsWeb.PollController do
     conn
     |> render("show.json", changeset: changeset)
   end
-
+  #confirms whether or not poll insert to repo was successful
   def create(conn, %{"poll" => poll_params}) do
     changeset = Poll.changeset(%Poll{}, poll_params)
     case Repo.insert(changeset) do
@@ -33,10 +33,11 @@ defmodule TwocentsWeb.PollController do
         conn
         |> redirect(to: poll_path(conn, :index))
       {:error, changeset} ->
-        render(conn, "index.json", changeset: changeset)
+        conn
+        |> render(Twocents.ChangesetView, "error.json", changeset: changeset)
     end
   end
-
+  #takes poll and inserts into repo
   def create_poll(poll_params) do
       changeset = Poll.changeset(%Poll{}, poll_params)
       poll = Repo.insert!(changeset)
