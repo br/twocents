@@ -25,7 +25,8 @@ defmodule TwocentsWeb.PollController do
     conn
     |> render("show.json", changeset: changeset)
   end
-  #confirms whether or not poll insert to repo was successful
+  #takes poll and inserts into repo and confirms
+  #whether or not poll insert to repo was successful
   def create(conn, %{"poll" => poll_params}) do
     changeset = Poll.changeset(%Poll{}, poll_params)
     case Repo.insert(changeset) do
@@ -36,11 +37,6 @@ defmodule TwocentsWeb.PollController do
         conn
         |> render(Twocents.ChangesetView, "error.json", changeset: changeset)
     end
-  end
-  #takes poll and inserts into repo
-  def create_poll(poll_params) do
-      changeset = Poll.changeset(%Poll{}, poll_params)
-      poll = Repo.insert!(changeset)
   end
 
   def show(conn, %{"id" => id}) do
@@ -56,10 +52,12 @@ defmodule TwocentsWeb.PollController do
     render(conn, "edit.html", poll: poll, changeset: changeset)
   end
 
+  #get poll_id, choice_id; increment choice.votes
   def update(conn, %{"id" => id, "poll" => poll_params}) do
     poll = Repo.get!(Poll, id)
     changeset = Poll.changeset(poll, poll_params)
-
+    #vote_up = Repo.get!(Choice, choice.id)
+    #vote = Enum.at(poll.choices.id)
     case Repo.update(changeset) do
       {:ok, poll} ->
         conn
