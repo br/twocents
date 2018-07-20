@@ -9,7 +9,7 @@ defmodule TwocentsWeb.PollView do
   def render("show.json", %{poll: poll}) do
     %{data: render_one(poll, TwocentsWeb.PollView, "poll.json")}
   end
-
+  #formats poll information view
   def render("poll.json", %{poll: poll}) do
     %{
       title: poll.title,
