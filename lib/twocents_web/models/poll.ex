@@ -20,7 +20,7 @@ defmodule Twocents.Poll do
   def changeset(model, params \\ %{}) do
     model
     |> cast(params, [:title, :closed])
-    |> validate_required([:title, :closed])
+    |> validate_required([:title, :closed, :choices])
     |> unique_constraint(:title)
     |> cast_assoc(:choices)
     |> validate_length(:choices, min: 2, max: 4)
