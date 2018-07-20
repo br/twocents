@@ -10,13 +10,8 @@ RUN rm -rf _build deps
 EXPOSE 4000
 
 ENV PORT 4000
-<<<<<<< HEAD
-  
-ENV MIX_ENV dev
-=======
 
 ENV MIX_ENV prod
->>>>>>> dev to prod
 
 RUN apk --update --no-cache add --virtual .app-build make && \
     apk --update --no-cache add git && \
