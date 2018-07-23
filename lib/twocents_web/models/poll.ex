@@ -8,7 +8,7 @@ defmodule Twocents.Poll do
   schema "polls" do
     field :title, :string
     field :closed, :boolean, default: false
-
+    field :vote_count, :integer, default: 0
     has_many :choices, Twocents.Choice, on_delete: :delete_all
 
     timestamps()
