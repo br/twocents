@@ -19,12 +19,12 @@ defmodule TwocentsWeb.PollController do
   end
 
   def new(conn, _params) do
-    changeset =
-      Poll.changeset(%Poll{})
+    changeset = Poll.changeset(%Poll{})
 
     conn
     |> render("show.json", changeset: changeset)
   end
+
   #takes poll and inserts into repo and confirms
   #whether or not poll insert to repo was successful
   def create(conn, %{"poll" => poll_params}) do
@@ -53,18 +53,20 @@ defmodule TwocentsWeb.PollController do
   end
 
   #get poll_id, choice_id; increment choice.votes
-  def update(conn, %{"id" => id, "poll" => poll_params}) do
+  def update(conn, %{"poll_id" => id, "poll" => poll_params, "id" => choiceID}) do
     poll = Repo.get!(Poll, id)
+    poll = Repo.preload(poll, :choices)
+    choice = Repo.get!(Choice, choiceID)
+    choice = Ecto.Changeset.change choice, votes: choice.votes + 1
+    vote_total = Ecto.Changeset.change poll, vote_count: poll.vote_count + 1
     changeset = Poll.changeset(poll, poll_params)
-    #vote_up = Repo.get!(Choice, choice.id)
-    #vote = Enum.at(poll.choices.id)
-    case Repo.update(changeset) do
-      {:ok, poll} ->
+    case Repo.update(choice) do #originally (changeset)
+      {:ok, choice} ->
         conn
-        |> put_flash(:info, "Poll updated successfully.")
+      #|> put_flash(:info, "Poll updated successfully.")
         |> redirect(to: poll_path(conn, :show, poll))
       {:error, changeset} ->
-        render(conn, "edit.html", poll: poll, changeset: changeset)
+        render(conn, Twocents.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
