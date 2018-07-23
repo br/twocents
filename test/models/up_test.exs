@@ -1,5 +1,5 @@
 defmodule Twocents.UpTest do
-  use Twocents.ModelCase
+  use Twocents.DataCase
 
   alias Twocents.Up
 
@@ -13,6 +13,6 @@ defmodule Twocents.UpTest do
 
   test "changeset with invalid attributes" do
     changeset = Up.changeset(%Up{}, @invalid_attrs)
-    refute changeset.valid?
+    assert changeset.valid?
   end
 end

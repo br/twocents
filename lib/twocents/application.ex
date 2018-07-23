@@ -1,10 +1,6 @@
 defmodule Twocents.Application do
   @moduledoc """
-<<<<<<< HEAD
   TwoCents Application
-=======
-  Two-Cents Application
->>>>>>> 29f9df7f2ce9de795387904ae09d6efd5f393451
   """
 
   use Application
@@ -16,15 +12,10 @@ defmodule Twocents.Application do
 
     # Define workers and child supervisors to be supervised
     children = [
-      # Start the Ecto repository
-      #supervisor(Twocents.Repo, []),
       # Start the endpoint when the application starts
       supervisor(TwocentsWeb.Endpoint, []),
-<<<<<<< HEAD
       #START THE ECTO REPOSITORY
       worker(Twocents.Repo, []),
-=======
->>>>>>> 29f9df7f2ce9de795387904ae09d6efd5f393451
       # Start your own worker by calling:
       # Twocents.Worker.start_link(arg1, arg2, arg3)
       # worker(Twocents.Worker, [arg1, arg2, arg3]),

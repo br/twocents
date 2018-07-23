@@ -1,7 +1,10 @@
 defmodule Twocents.Poll do
+  @moduledoc """
+  TwoCents Poll
+  """
   use TwocentsWeb, :model
   use Ecto.Schema
-
+  import Ecto.Changeset
   schema "polls" do
     field :title, :string
     field :closed, :boolean, default: false
@@ -18,5 +21,7 @@ defmodule Twocents.Poll do
     model
     |> cast(params, [:title, :closed])
     |> validate_required([:title, :closed])
+    |> unique_constraint(:title)
+    |> cast_assoc(:choices)
   end
 end

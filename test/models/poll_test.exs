@@ -1,5 +1,5 @@
 defmodule Twocents.PollTest do
-  use Twocents.ModelCase
+  use Twocents.DataCase
 
   alias Twocents.Poll
 

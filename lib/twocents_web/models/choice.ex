@@ -1,4 +1,7 @@
 defmodule Twocents.Choice do
+  @moduledoc """
+  TwoCents Choice
+  """
   use Ecto.Schema
   import Ecto.Changeset
   use TwocentsWeb, :model
@@ -19,5 +22,6 @@ defmodule Twocents.Choice do
     model
     |> cast(params, @required_fields, @optional_fields)
     |> validate_required([:title])
+    |> unique_constraint(:title)
   end
 end

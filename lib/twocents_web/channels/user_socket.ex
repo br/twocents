@@ -4,7 +4,7 @@ defmodule TwocentsWeb.UserSocket do
   ## Channels
   # channel "room:*", TwocentsWeb.RoomChannel
   channel "polls:*", Twocents.PollChannel
-  
+
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
   # transport :longpoll, Phoenix.Transports.LongPoll
@@ -25,7 +25,7 @@ defmodule TwocentsWeb.UserSocket do
   end
 
   # Socket id's are topics that allow you to
-  #identify all sockets for a given user:
+  # identify all sockets for a given user:
   #     def id(socket), do: "user_socket:#{socket.assigns.user_id}"
   #
   # Would allow you to broadcast a "disconnect" event and terminate

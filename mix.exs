@@ -10,7 +10,8 @@ defmodule Twocents.Mixfile do
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls]
     ]
   end
 
@@ -33,6 +34,7 @@ defmodule Twocents.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:httpoison, "~> 0.13"},
       {:phoenix, "~> 1.3.2"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.2"},
@@ -40,9 +42,10 @@ defmodule Twocents.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:ecto, "~> 2.0"},
       {:cowboy, "~> 1.0"},
-      {:credo, "~> 0.8.10", runtime: false}
+      {:credo, "~> 0.8.10", runtime: false},
+      {:excoveralls, "~> 0.7.5"},
+      {:ecto, "~> 2.0"}
     ]
   end
 

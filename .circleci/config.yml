@@ -5,7 +5,6 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version here
       - image: docker:17.05.0-ce-git
 
       # Specify service dependencies here if necessary

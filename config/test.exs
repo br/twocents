@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :twocents, Twocents.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "msampaga",
-  password: "postgres",
+  username: System.get_env("POSTGRES_USERNAME") || "msampaga",
+  password: System.get_env("POSTGRES_PASSWORD") || "postgres",
   database: "twocents_test",
-  hostname: "localhost",
+  hostname: System.get_env("POSTGRES_HOSTNAME") || "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
