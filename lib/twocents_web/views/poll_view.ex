@@ -13,9 +13,9 @@ defmodule TwocentsWeb.PollView do
   def render("poll.json", %{poll: poll}) do
     %{
       title: poll.title,
-      id: poll.id,
+      poll_id: poll.id,
       choices: render_many(poll.choices, ChoiceView, "choice.json"),
-      total_votes: poll.vote_count
+      votetotal: poll.votetotal
     }
   end
 end

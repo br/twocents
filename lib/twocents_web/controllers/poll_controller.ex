@@ -53,12 +53,12 @@ defmodule TwocentsWeb.PollController do
   end
 
   #get poll_id, choice_id; increment choice.votes
-  def update(conn, %{"poll_id" => id, "poll" => poll_params, "id" => choiceID}) do
-    poll = Repo.get!(Poll, id)
+  def update(conn, %{"poll_id" => poll_id, "poll" => poll_params, "choice_id" => choice_id}) do
+    poll = Repo.get!(Poll, poll_id)
     poll = Repo.preload(poll, :choices)
-    choice = Repo.get!(Choice, choiceID)
+    choice = Repo.get!(Choice, choice_id)
     choice = Ecto.Changeset.change choice, votes: choice.votes + 1
-    vote_total = Ecto.Changeset.change poll, vote_count: poll.vote_count + 1
+    votetotal = Ecto.Changeset.change poll, votetotal: poll.votetotal + 1
     changeset = Poll.changeset(poll, poll_params)
     case Repo.update(choice) do #originally (changeset)
       {:ok, choice} ->
