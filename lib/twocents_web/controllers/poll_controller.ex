@@ -85,7 +85,7 @@ defmodule TwocentsWeb.PollController do
   #       |> render(Twocents.ChangesetView, "error.json", changeset: changeset)
   #   end
   # end
-  # STATE 1 -> CHANGES TO TOTAL VOTES + CHOICE VOTES ALLOWED ONLY  
+  # STATE 1 -> CHANGES TO TOTAL VOTES + CHOICE VOTES ALLOWED ONLY
   def update(conn, %{"poll_id" => poll_id, "choice_id" => choice_id, "poll" => poll_params}) do #"state" => 1
     # voting is open, only update/increment choice.votes and poll.totalvotes
     poll = Repo.get!(Poll, poll_id)
