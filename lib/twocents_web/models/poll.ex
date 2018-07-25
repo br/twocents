@@ -9,7 +9,7 @@ defmodule Twocents.Poll do
     field :title, :string
     field :closed, :boolean, default: false
     field :state, :integer, default: 0 ## only 0,1,2
-    field :totalvotes, :integer, default: 0
+    #field :totalvotes, :integer, default: 0
     has_many :choices, Twocents.Choice, on_delete: :delete_all
 
     timestamps()
