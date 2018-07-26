@@ -17,7 +17,7 @@ RUN apk --update --no-cache add --virtual .app-build make && \
     apk --update --no-cache add git && \
     apk add --no-cache build-base && \
     apk add postgresql-client && \
-    apk del .app-build
+    apk del .app-build    
 
 RUN mix local.hex --force && mix local.rebar --force && \
     mix do deps.clean mime --build, deps.get, compile, compile.protocols
