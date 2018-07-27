@@ -24,10 +24,10 @@ defmodule TwocentsWeb.Router do
   # Other scopes may use custom stacks.
    scope "/test", TwocentsWeb do
      pipe_through :api
-
-     get "/polls", PollController, :index
-     get "/polls/:id", PollController, :show
-     post "/polls", PollController, :create #to save new polls to db
-     put "/polls", PollController, :update #to increment poll votes
+     resources "/polls", PollController
+     # get "/polls", PollController, :index
+     # get "/polls/:id", PollController, :show
+     # post "/polls", PollController, :create #to save new polls to db
+     # put "/polls", PollController, :update #to increment poll votes
    end
 end
