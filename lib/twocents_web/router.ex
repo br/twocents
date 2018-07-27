@@ -18,7 +18,6 @@ defmodule TwocentsWeb.Router do
 
     get "/", PageController, :index
     get "/up", UpController, :index
-    #resources "/polls", PollController
   end
 
   # Other scopes may use custom stacks.
@@ -27,7 +26,7 @@ defmodule TwocentsWeb.Router do
      resources "/polls", PollController
      # get "/polls", PollController, :index
      # get "/polls/:id", PollController, :show
-     # post "/polls", PollController, :create #to save new polls to db
-     # put "/polls", PollController, :update #to increment poll votes
+     post "/polls", PollController, :create #to save new polls to db
+     put "/polls", PollController, :update #to increment poll votes
    end
 end
