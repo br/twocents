@@ -18,15 +18,12 @@ defmodule TwocentsWeb.Router do
 
     get "/", PageController, :index
     get "/up", UpController, :index
-    #resources "/polls", PollController
   end
 
   # Other scopes may use custom stacks.
    scope "/test", TwocentsWeb do
      pipe_through :api
-
-     get "/polls", PollController, :index
-     get "/polls/:id", PollController, :show
+     resources "/polls", PollController
      post "/polls", PollController, :create
      put "/polls", PollController, :update
    end
