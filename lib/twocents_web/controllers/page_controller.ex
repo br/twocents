@@ -2,6 +2,6 @@ defmodule TwocentsWeb.PageController do
   use TwocentsWeb, :controller
 
   def index(conn, _params) do
-    render conn, "index.html"
+    render conn, "react.html"
   end
 end
