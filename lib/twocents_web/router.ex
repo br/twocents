@@ -28,6 +28,6 @@ defmodule TwocentsWeb.Router do
      get "/polls", PollController, :index
      get "/polls/:id", PollController, :show
      post "/polls", PollController, :create
-     put "/polls/:id", PollController, :update
+     put "/polls", PollController, :update
    end
 end

@@ -55,17 +55,23 @@ defmodule TwocentsWeb.PollController do
     render(conn, "edit.html", poll: poll, changeset: changeset)
   end
 
-  def update(conn, %{"id" => id, "poll" => poll_params}) do
-    poll = Repo.get!(Poll, id)
+  def update(conn, %{"poll_id" => poll_id, "poll" => poll_params, "choice_id" => choice_id}) do
+    poll = Repo.get!(Poll, poll_id)
+    poll = Repo.preload(poll, :choices)
+    choice = Repo.get!(Choice, choice_id)
+    choice = Ecto.Changeset.change choice, votes: choice.votes + 1
+    totalvotes = Ecto.Changeset.change poll, totalvotes: poll.totalvotes + 1
+    Repo.update(totalvotes)
+    Repo.update(choice)
     changeset = Poll.changeset(poll, poll_params)
-
     case Repo.update(changeset) do
       {:ok, poll} ->
         conn
-        |> put_flash(:info, "Poll updated successfully.")
+        #|> put_flash(:info, "Poll updated successfully.")
         |> redirect(to: poll_path(conn, :show, poll))
       {:error, changeset} ->
-        render(conn, "edit.html", poll: poll, changeset: changeset)
+        conn
+        |> render(Twocents.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
@@ -74,7 +80,7 @@ defmodule TwocentsWeb.PollController do
     Repo.delete!(poll)
 
     conn
-    |> put_flash(:info, "Poll deleted successfully.")
+    #|> put_flash(:info, "Poll deleted successfully.")
     |> redirect(to: poll_path(conn, :index))
   end
 end
