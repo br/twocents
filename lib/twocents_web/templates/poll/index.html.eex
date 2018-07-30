@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Question</th>
-      <th>Closed</th>
+      <th>ID</th>
 
       <th></th>
     </tr>
@@ -13,7 +13,7 @@
 <%= for poll <- @polls do %>
     <tr>
       <td><%= poll.title %></td>
-      <td><%= poll.closed %></td>
+      <td><%= poll.id %></td>
 
       <td class="text-right">
         <span><%= link "Show", to: poll_path(@conn, :show, poll), class: "btn btn-default btn-xs" %></span>

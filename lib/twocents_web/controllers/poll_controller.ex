@@ -23,7 +23,7 @@ defmodule TwocentsWeb.PollController do
       Poll.changeset(%Poll{})
 
     conn
-    |> render("show.json", changeset: changeset)
+    |> render("new.json", changeset: changeset)
   end
 
   def create(conn, %{"poll" => poll_params}) do

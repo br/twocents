@@ -22,7 +22,7 @@ defmodule TwocentsWeb.Router do
 
   # Other scopes may use custom stacks.
    scope "/test", TwocentsWeb do
-     pipe_through :api
+     pipe_through :browser #originally ;api
      resources "/polls", PollController
      post "/polls", PollController, :create
      put "/polls", PollController, :update
