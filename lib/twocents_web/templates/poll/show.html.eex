@@ -9,8 +9,8 @@
     </li>
 
     <li>
-      <strong>Closed:</strong>
-      <span id="poll-closed"><%= @poll.closed %></span>
+      <strong>Total Votes:</strong>
+      <span id="poll-totalvotes"><%= @poll.totalvotes %></span>
     </li>
 
     <li>

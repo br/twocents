@@ -10,7 +10,7 @@ defmodule TwocentsWeb.Router do
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug :accepts, ["json", "html"]
   end
 
   scope "/", TwocentsWeb do
@@ -22,7 +22,7 @@ defmodule TwocentsWeb.Router do
 
   # Other scopes may use custom stacks.
    scope "/test", TwocentsWeb do
-     pipe_through :browser #originally ;api
+     pipe_through :api
      resources "/polls", PollController
      post "/polls", PollController, :create
      put "/polls", PollController, :update
