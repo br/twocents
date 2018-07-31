@@ -6,7 +6,7 @@
   </head>
   <body>
     <div class="jumbotron">
-      <h2><%= gettext "WELCOME TO %{name}!", name: "TWOCENTS!" %></h2>
+      <h2><%= gettext "WELCOME TO %{name}!", name: "TWOCENTS" %></h2>
       <p class="lead">A project that Mariko Sampaga<br />will be working on during her internship!</p>
     </div>
     <h1>Poll</h1>
