@@ -37,11 +37,6 @@ defmodule TwocentsWeb.PollController do
     end
   end
 
-  def create_poll(poll_params) do
-      changeset = Poll.changeset(%Poll{}, poll_params)
-      poll = Repo.insert!(changeset)
-  end
-
   def show(conn, %{"id" => id}) do
     choice_query = from c in Choice, order_by: [asc: c.id], limit: 4
     poll_query  = from p in Poll, preload: [choices: ^choice_query]
