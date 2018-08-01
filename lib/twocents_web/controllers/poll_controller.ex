@@ -15,7 +15,7 @@ defmodule TwocentsWeb.PollController do
     |> Repo.all()
     |> Repo.preload([:choices])
     conn
-    |> render("index.html", polls: polls)
+    |> render("index.json", polls: polls)
   end
 
   def new(conn, _params) do
@@ -23,7 +23,7 @@ defmodule TwocentsWeb.PollController do
       Poll.changeset(%Poll{})
 
     conn
-    |> render("new.html", changeset: changeset)
+    |> render("new.json", changeset: changeset)
   end
 
   def create(conn, %{"poll" => poll_params}) do
@@ -41,7 +41,7 @@ defmodule TwocentsWeb.PollController do
     choice_query = from c in Choice, order_by: [asc: c.id], limit: 4
     poll_query  = from p in Poll, preload: [choices: ^choice_query]
     poll = Repo.get!(poll_query, id)
-    render(conn, "show.html", poll: poll)
+    render(conn, "show.json", poll: poll)
   end
 
   def edit(conn, %{"id" => id}) do

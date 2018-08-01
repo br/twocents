@@ -4,6 +4,10 @@
   <p class="lead">A project that Mariko Sampaga<br />will be working on during her internship!</p>
 </div>
 
+
+
+
+
 <div>
   <h1>New Poll</h1>
   <input type="submit" value="Submit" />
@@ -21,6 +25,8 @@
     </div>
   </div>
 </div>
+<script src="newpoll.js"></script>
+
 
 <div id="like_button_container"></div>
 <!-- Load React. -->
