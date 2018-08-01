@@ -2,33 +2,27 @@
 <input type="hidden" id="poll-id" value="<%= @poll.id %>">
 
 <div class="col-xs-8">
-  <ul>
-    <li>
+
+
       <strong>Title:</strong>
-      <%= @poll.title %>
-    </li>
+      <%= @poll.title %> <br />
 
-    <li>
+
+
       <strong>Total Votes:</strong>
-      <span id="poll-totalvotes"><%= @poll.totalvotes %></span>
-    </li>
+      <span id="poll-totalvotes"><%= @poll.totalvotes %></span><br />
 
-    <li>
-      <strong>Choices:</strong>
-      <ul>
+
+
+      <strong>Choices:</strong><br /></br>
         <%= for choice <- @poll.choices do %>
-          <li class="choice" data-choice-id="<%= choice.id %>">
-            <span class="votes"><%= choice.votes %></span> votes:
-            <span class="title"><%= choice.title %></span>
-            <%= link "Vote", to: "#", class: "btn btn-info vote #{ if @poll.closed, do: "hidden" }" %>
-          </li>
+          <!-- <li class="choice" data-choice-id="<%= choice.id %>"> -->
+            <span class="title"><%= choice.title %></span> -
+            <span class="badge"><%= choice.votes %></span>
+            <%= link "Vote", to: "#", class: "btn btn-success btn-xs vote #{ if @poll.closed, do: "hidden" }" %></br></br>
+          <!-- </li> -->
         <% end %>
-      </ul>
-    </li>
-  </ul>
-</div>
 
-<div class="col-xs-4">
-  <div id="my-chart"></div>
+
+
 </div>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>

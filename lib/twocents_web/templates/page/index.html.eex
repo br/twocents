@@ -1,4 +1,34 @@
+<body>
 <div class="jumbotron">
   <h2><%= gettext "WELCOME TO %{name}!", name: "TWOCENTS!" %></h2>
   <p class="lead">A project that Mariko Sampaga<br />will be working on during her internship!</p>
 </div>
+
+<div>
+  <h1>New Poll</h1>
+  <input type="submit" value="Submit" />
+  <div id="poll_options">
+    <label>Question</label>
+    <input type="text" placeholder="Poll Title"/>
+    <div id="room_fileds">
+       <div>
+        <div class="content">
+          <input type="button" id="more_fields" onclick="add_fields();" value="Add Option" />
+          <span>Options <input type="text" placeholder="Option Title" />
+          <input type="text" placeholder="Option Title" /></span>
+        </div>
+       </div>
+    </div>
+  </div>
+</div>
+
+<div id="like_button_container"></div>
+<!-- Load React. -->
+<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+
+<!-- Load our React component. -->
+<script src="like_button.js"></script>
+
+</body>

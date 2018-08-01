@@ -45,7 +45,8 @@ defmodule Twocents.Mixfile do
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.8.10", runtime: false},
       {:excoveralls, "~> 0.7.5"},
-      {:ecto, "~> 2.0"}
+      {:ecto, "~> 2.0"},
+      {:react_phoenix, "~> 0.5.2"}
     ]
   end
 

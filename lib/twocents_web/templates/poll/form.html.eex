@@ -11,17 +11,21 @@
   <% end %>
 
   <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+
+  <div class="form-group">
     <%= label f, :title, "Question", class: "control-label" %>
     <%= text_input f, :title, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <%= label f, :closed, "Closed", class: "control-label" %>
     <%= checkbox f, :closed, class: "form-control" %>
-  </div>
+  </div> -->
 
   <div class="row">
-    <div class="col-xs-8">
+    <div class="col-xs-1">
       <h4>Choices</h4>
     </div>
     <div class="col-xs-4 text-right">
@@ -44,7 +48,4 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
-  </div>
 <% end %>
