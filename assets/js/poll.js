@@ -20,6 +20,7 @@ export class Poll {
   _cloneChoice() {
     // Limits choices to 4
     if ($("#choices .form-control").length >= 4){
+      // document.getElementById("add-choices").disabled=true;
       return
     }
     // Clone the top choice
