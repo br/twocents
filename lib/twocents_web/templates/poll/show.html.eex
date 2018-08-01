@@ -23,6 +23,6 @@
           <!-- </li> -->
         <% end %>
 
-
+<span><%= link "Back", to: poll_path(@conn, :index) %></span>
 
 </div>
