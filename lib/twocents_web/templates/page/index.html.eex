@@ -4,28 +4,9 @@
   <p class="lead">A project that Mariko Sampaga<br />will be working on during her internship!</p>
 </div>
 
+<div id="root"></div>
 
-
-
-
-<div>
-  <h1>New Poll</h1>
-  <input type="submit" value="Submit" />
-  <div id="poll_options">
-    <label>Question</label>
-    <input type="text" placeholder="Poll Title"/>
-    <div id="room_fileds">
-       <div>
-        <div class="content">
-          <input type="button" id="more_fields" onclick="add_fields();" value="Add Option" />
-          <span>Options <input type="text" placeholder="Option Title" />
-          <input type="text" placeholder="Option Title" /></span>
-        </div>
-       </div>
-    </div>
-  </div>
-</div>
-<script src="newpoll.js"></script>
+<div id="hello-react"></div>
 
 
 <div id="like_button_container"></div>
