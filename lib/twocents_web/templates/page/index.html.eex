@@ -1,21 +1,45 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
 <body>
 <div class="jumbotron">
   <h2><%= gettext "WELCOME TO %{name}!", name: "TWOCENTS!" %></h2>
   <p class="lead">A project that Mariko Sampaga<br />will be working on during her internship!</p>
 </div>
 
-<div id="root"></div>
+<head>
+  <div id="root"></div>
+  <div id="hello-react"></div>
 
-<div id="hello-react"></div>
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+  <script>
+  // alert("HELLO");
+  const e = React.createElement;
 
+  class LikeButton extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = { liked: false };
+    }
 
-<div id="like_button_container"></div>
-<!-- Load React. -->
-<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    render() {
+      if (this.state.liked) {
+        return 'You liked this.';
+      }
 
-<!-- Load our React component. -->
-<script src="like_button.js"></script>
+      return e(
+        'button',
+        { onClick: () => this.setState({ liked: true }) },
+        'Like'
+      );
+    }
+  }
 
+  const domContainer = document.getElementById('root');
+  ReactDOM.render(e(LikeButton), domContainer);
+  </script>
+</head>
 </body>
+</html>
