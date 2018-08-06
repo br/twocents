@@ -14,30 +14,72 @@
       <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
       <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
       <script>
-        // alert("HELLO");
+        // // alert("HELLO");
+        // const e = React.createElement;
+        //
+        // class LikeButton extends React.Component {
+        //   constructor(props) {
+        //     super(props);
+        //     this.state = { liked: false };
+        //   }
+        //
+        //   render() {
+        //     if (this.state.liked) {
+        //       return 'You liked this.';
+        //     }
+        //
+        //     return e(
+        //       'button',
+        //       { onClick: () => this.setState({ liked: true }) },
+        //       'Like'
+        //     );
+        //   }
+        // }
+        //
+        // const domContainer = document.getElementById('root');
+        // ReactDOM.render(e(LikeButton), domContainer);
         const e = React.createElement;
-
-        class LikeButton extends React.Component {
+        class Question extends React.Component {
           constructor(props) {
             super(props);
-            this.state = { liked: false };
+            this.state = {value: ''};
+
+            this.handleChange = this.handleChange.bind(this);
+            this.handleSubmit = this.handleSubmit.bind(this);
           }
 
-          render() {
-            if (this.state.liked) {
-              return 'You liked this.';
-            }
+          handleChange(event){
+            this.setState({value: event.target.value});
+          }
 
+          handleSubmit(event){
+            var title = this.state.value;
+            alert('A poll title was submitted: ' + title);
+            event.preventDefault();
+          }
+
+          render(){
             return e(
-              'button',
-              { onClick: () => this.setState({ liked: true }) },
-              'Like'
-            );
+              "form",
+              { onSubmit: this.handleSubmit },
+              React.createElement(
+                "label",
+                null,
+                "Question:",
+              React.createElement(
+                "input",
+                { type: "text", placeholder: "Poll Title", value: this.state.value, onChange: this.handleChange })
+              ),
+              React.createElement(
+                "input",
+                { type: "submit", value: "Submit" })
+              );
+            }
           }
-        }
 
-        const domContainer = document.getElementById('root');
-        ReactDOM.render(e(LikeButton), domContainer);
+        //=====================
+         const domContainer = document.getElementById('root');
+         ReactDOM.render(e(Question), domContainer);
       </script>
     </head>
   </body>
