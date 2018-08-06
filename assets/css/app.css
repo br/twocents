@@ -90,3 +90,9 @@ form.link, form.button {
 .hidden {
   display: none;
 }
+input, label {
+  display: block;
+}
+h1 {
+  font-size: 40px;
+}

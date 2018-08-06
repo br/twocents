@@ -14,30 +14,6 @@
       <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
       <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
       <script>
-        // // alert("HELLO");
-        // const e = React.createElement;
-        //
-        // class LikeButton extends React.Component {
-        //   constructor(props) {
-        //     super(props);
-        //     this.state = { liked: false };
-        //   }
-        //
-        //   render() {
-        //     if (this.state.liked) {
-        //       return 'You liked this.';
-        //     }
-        //
-        //     return e(
-        //       'button',
-        //       { onClick: () => this.setState({ liked: true }) },
-        //       'Like'
-        //     );
-        //   }
-        // }
-        //
-        // const domContainer = document.getElementById('root');
-        // ReactDOM.render(e(LikeButton), domContainer);
         const e = React.createElement;
         class Question extends React.Component {
           constructor(props) {
@@ -58,21 +34,48 @@
             event.preventDefault();
           }
 
+
           render(){
             return e(
-              "form",
-              { onSubmit: this.handleSubmit },
-              React.createElement(
-                "label",
-                null,
-                "Question:",
-              React.createElement(
-                "input",
-                { type: "text", placeholder: "Poll Title", value: this.state.value, onChange: this.handleChange })
-              ),
-              React.createElement(
-                "input",
-                { type: "submit", value: "Submit" })
+              "div",
+    null,
+    React.createElement(
+      "h1",
+      null,
+      "New Poll"
+    ),
+    React.createElement("input", { type: "submit" }),
+    React.createElement(
+      "div",
+      { id: "poll_options" },
+      React.createElement(
+        "label",
+        null,
+        "Question"
+      ),
+      React.createElement("input", { type: "text", placeholder: "Poll Title" }),
+      React.createElement(
+        "div",
+        { id: "room_fileds" },
+        React.createElement(
+          "div",
+          null,
+          React.createElement(
+            "div",
+            { "class": "content" },
+            React.createElement("input", { type: "button", id: "more_fields", onclick: "add_fields();", value: "Add Option" }),
+            React.createElement(
+              "span",
+              null,
+              "Options ",
+              React.createElement("input", { type: "text", placeholder: "Option Title" }),
+              React.createElement("input", { type: "text", placeholder: "Option Title" })
+            )
+          )
+        )
+      )
+    )
+
               );
             }
           }
@@ -80,6 +83,23 @@
         //=====================
          const domContainer = document.getElementById('root');
          ReactDOM.render(e(Question), domContainer);
+      </script>
+      <script>
+      var options = 2;
+function add_fields() {
+  if(options < 4){
+    options++;
+    var objTo = document.getElementById('room_fileds')
+    var divtest = document.createElement("div");
+    divtest.innerHTML = '<div class="content"><span><input type="text" placeholder="Option Title" /></span></div>';
+
+    objTo.appendChild(divtest)
+  }
+  else {
+    document.getElementById("more_fields").style.visibility = "hidden";
+     document.getElementById("more_fields").disabled=true;
+}
+}
       </script>
     </head>
   </body>
