@@ -12,7 +12,7 @@
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
-
+import MyComponent from "./components/my_component"
 import "react-phoenix"
 import React from "react"
 import ReactDOM from "react-dom"

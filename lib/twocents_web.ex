@@ -40,6 +40,8 @@ defmodule TwocentsWeb do
       import TwocentsWeb.Router.Helpers
       import TwocentsWeb.ErrorHelpers
       import TwocentsWeb.Gettext
+
+      import ReactPhoenix.ClientSide
     end
   end
 
