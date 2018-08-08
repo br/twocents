@@ -21,7 +21,7 @@
       <div id="content"></div>
       <script>
       //Counter to maintain number of textboxes and give them unique id for later reference
-        var intTextBox = 2;
+         var intTextBox = 2;
 
       /**
       * Function to add textbox element dynamically
