@@ -46,7 +46,7 @@ class Form extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <input type="submit" value="Submit" />
         <label>Question</label>
-        <input type="text" name="question" onChange={this.handleChange}/>
+        <input type="text" name="question" placeholder="Poll Title" onChange={this.handleChange}/>
         <label>Choices</label>
         <input type="button" value="Add Choices" id="more_choices" disabled={this.state.options >= 4} onClick={this.addChoices}/>
         <div id="defaultchoices">
