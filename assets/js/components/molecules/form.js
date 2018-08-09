@@ -1,56 +1,69 @@
 import React from "react";
 import Choice from '../atoms/choice';
+import { createPoll } from "../../api/twocents_api";
 
 class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       question: '',
-      choice:'',
-      options: 2
+      choices:["",""]
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChoiceChange = this.handleChoiceChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addChoices = this.addChoices.bind(this);
-    this.createChoices = this.createChoices.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({[event.target.name]: event.target.value});
+  handleChoiceChange(event) {
+    const value = event.target.value;
+    const idx = event.target.name;
+    console.log("handleChoiceChange");
+    this.setState((prevState) => {
+      const choices = [...prevState.choices];
+      choices[idx] = value;
+      return {
+        choices: choices
+      };
+    });
   }
 
   handleSubmit(event){
-    var title = this.state.question;
-    var choice = this.state.choice;
-    alert('A poll was submitted: ' + title + ' with choice ' + choice);
     event.preventDefault();
+    console.log("calling createPoll");
+    createPoll(this.state.question, this.state.choices);
+    debugger;
+    // var title = this.state.question;
+    // var choice = this.state.choice;
+    // alert('A poll was submitted: ' + title + ' with choice ' + choice);
   }
 
   addChoices(){
-    if(this.state.options < 4){
+    if(this.state.choices.length < 4){ // Will need to use Object.keys(this.state.choices).length
       this.setState({
-        options: this.state.options + 1
+        choices: [ ...this.state.choices, "" ]
       });
     }
   }
-  createChoices(optionsLength){
-    let optionsArray = [];
-    for(var i = 0; i < optionsLength; i++) {
-      optionsArray.push(<Choice key={i} handleChange={this.handleChange} />);
-    }
-    return optionsArray;
-  }
+
   render(){
-    const options = this.createChoices(this.state.options);
+    const handleChoiceChange = this.handleChoiceChange;
+    const choices = this.state.choices;
     return(
-      <form onSubmit={this.handleSubmit}>
-        <input type="submit" value="Submit" />
+      <form>
+        <input type="submit" value="Submit" onClick={this.handleSubmit} />
         <label>Question</label>
-        <input type="text" name="question" placeholder="Poll Title" onChange={this.handleChange}/>
+        <input type="text" name="question" placeholder="Poll Title" />
         <label>Choices</label>
-        <input type="button" value="Add Choices" id="more_choices" disabled={this.state.options >= 4} onClick={this.addChoices}/>
+        <input type="button" value="Add Choices" id="more_choices" disabled={this.state.choices.length >= 4} onClick={this.addChoices}/>
         <div id="defaultchoices">
-          {options}
+          {this.state.choices.map(function(choice, idx) {
+            return <Choice
+              handleChoiceChange={handleChoiceChange}
+              key={idx}
+              name={idx}
+              value={choices[idx]}
+            />;
+          })}
         </div>
       </form>
     );
