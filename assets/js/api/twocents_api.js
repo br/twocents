@@ -10,6 +10,13 @@ const createPoll = (question, choices) => {
     "poll":  {
       "title": question,
       "choices": choices
+      /*          ???
+      "choices": formattedChoices = choices.map((choice) => {
+      return {
+        title: choice
+    };
+    })
+      */
     }
   };
   return fetch("http://0.0.0.0:4000/test/polls", {

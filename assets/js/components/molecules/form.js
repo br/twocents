@@ -11,12 +11,25 @@ class Form extends React.Component {
       question: '',
       choices:["",""] //Array for choices, default 2 choices
     };
+    //While user is typing in question
+    this.handleQuestionChange = this.handleQuestionChange.bind(this);
     //While user is typing in choices
     this.handleChoiceChange = this.handleChoiceChange.bind(this);
     //When user presses Submit button
     this.handleSubmit = this.handleSubmit.bind(this);
     //When user clicks Add Choices button
     this.addChoices = this.addChoices.bind(this);
+  }
+  //While user is typing in question
+  handleQuestionChange(event) {
+    const value = event.target.value;
+    this.setState((prevState) => {
+      const question = [...prevState.question];
+      question = value;
+      return {
+        question: question
+      };
+    });
   }
   //While user is typing in choices
   handleChoiceChange(event) {
