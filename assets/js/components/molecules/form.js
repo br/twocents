@@ -1,4 +1,5 @@
 import React from "react";
+import Question from '../atoms/question';
 import Choice from '../atoms/choice';
 import { createPoll } from "../../api/twocents_api";
 /*
@@ -22,9 +23,13 @@ class Form extends React.Component {
   }
   //While user is typing in question
   handleQuestionChange(event) {
+    //copies text in input box
     const value = event.target.value;
+    console.log("handleQuestionChange");
+    //edits question to text in input box
     this.setState((prevState) => {
-      const question = [...prevState.question];
+      let question = prevState.question;
+      //sets text in input box to question
       question = value;
       return {
         question: question
@@ -67,15 +72,19 @@ class Form extends React.Component {
   }
 
   render(){
+    const handleQuestionChange = this.handleQuestionChange;
     const handleChoiceChange = this.handleChoiceChange;
+    const question = this.state.question;
     const choices = this.state.choices;
     return(
       <form>
         <input type="submit" value="Submit" onClick={this.handleSubmit} />
         <label>Question</label>
-        <input type="text" name="question" placeholder="Poll Title" />
+        <Question
+          handleQuestionChange={handleQuestionChange}
+          value={question} />
         <label>Choices</label>
-        <input type="button" value="Add Choices" id="more_choices" disabled={this.state.choices.length >= 4} onClick={this.addChoices}/>
+        <input type="button" value="Add Choices" id="more_choices" disabled={this.state.choices.length >= 4} onClick={this.addChoices} />
         <div id="defaultchoices">
           {this.state.choices.map(function(choice, idx) {
             return <Choice

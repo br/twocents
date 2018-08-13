@@ -23,9 +23,10 @@ class App extends React.Component {
     return (<Form />);
   }
 }
+
 ReactDOM.render(
   <App/>,
-  document.getElementById("hello-world")
+  document.getElementById("root")
 )
 // Import local files
 //
