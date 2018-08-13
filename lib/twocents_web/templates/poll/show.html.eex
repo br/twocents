@@ -16,13 +16,15 @@
 
       <strong>Choices:</strong><br /></br>
         <%= for choice <- @poll.choices do %>
-          <!-- <li class="choice" data-choice-id="<%= choice.id %>"> -->
+          <li class="choice" data-choice-id="<%= choice.id %>">
             <span class="title"><%= choice.title %></span> -
             <span class="badge"><%= choice.votes %></span>
             <%= link "Vote", to: "#", class: "btn btn-success btn-xs vote #{ if @poll.closed, do: "hidden" }" %></br></br>
-          <!-- </li> -->
+          </li>
         <% end %>
 
 <span><%= link "Back", to: poll_path(@conn, :index) %></span>
 
 </div>
+
+<div id="polldisplay"></div>

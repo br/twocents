@@ -6,7 +6,9 @@
       <h2><%= gettext "WELCOME TO %{name}!", name: "TWOCENTS!" %></h2>
       <p class="lead">A project that Mariko Sampaga<br />will be working on during her internship!</p>
     </div>
-
+    <div class="newpoll">
+      <h3> New Poll: </h3>
+    </div>
     <head>
       <div id="root"></div>
 

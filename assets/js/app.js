@@ -17,6 +17,7 @@ import "react-phoenix"
 import React from "react"
 import ReactDOM from "react-dom"
 import Form from './components/molecules/form';
+import Display from './components/molecules/display';
 
 class App extends React.Component {
   render() {
@@ -27,6 +28,17 @@ class App extends React.Component {
 ReactDOM.render(
   <App/>,
   document.getElementById("root")
+)
+
+class Show extends React.Component {
+  render() {
+    return(<Display />);
+  }
+}
+
+ReactDOM.render(
+  <Show/>,
+  document.getElementById("polldisplay")
 )
 // Import local files
 //

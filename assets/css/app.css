@@ -54,7 +54,12 @@ form.link, form.button {
 /* Main marketing message */
 .jumbotron {
   text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #777777;
+}
+
+.newpoll {
+  text-align: center;
+  border: 3px solid #03FC96;
 }
 
 /* Supporting marketing content */
