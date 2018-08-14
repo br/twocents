@@ -1,5 +1,5 @@
 @import url("http://batsman.bleacherreport.com/css/atomic.css");
-body, h1, h2, h3, h4, h5, h6, p {
+body, h1, h2, h3, h4, h5, h6, p, div {
   text-align: center;
   font-family: 'Effra', Helvetica, Arial, sans-serif;
   font-weight: 500;
