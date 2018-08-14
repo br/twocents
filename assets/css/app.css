@@ -1,5 +1,6 @@
 @import url("http://batsman.bleacherreport.com/css/atomic.css");
 body, h1, h2, h3, h4, h5, h6, p {
+  text-align: center;
   font-family: 'Effra', Helvetica, Arial, sans-serif;
   font-weight: 500;
 }
@@ -64,6 +65,15 @@ form.link, form.button {
   font-weight: bold;
 }
 
+.allpolls {
+  font-family: 'Effra', Helvetica, Arial, sans-serif;
+  text-align: center;
+  background-color: white;
+  padding-top: 1px;
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
 input[type=button] {
   font-family: 'Effra', Helvetica, Arial, sans-serif;
   text-align: center;
@@ -107,6 +117,10 @@ div[id="form"] {
     border: 2px black;
     background-color: white;
     padding: 20px;
+}
+
+label {
+  font-size: 20px;
 }
 /* Supporting marketing content */
 .marketing {

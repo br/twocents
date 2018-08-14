@@ -26,10 +26,11 @@ class Display extends React.Component {
     var polls = this.state.polls ? JSON.stringify(this.state.polls, null, 2) : "" ;
     return (
       <div>
+        <h3> SHOW ALL POLLS </h3>
         <p>Display</p>
         { polls } //display pollComponent here
       </div>
-    )
+    );
   }
 }
 export default Display;

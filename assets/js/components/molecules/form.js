@@ -78,6 +78,9 @@ class Form extends React.Component {
     const choices = this.state.choices;
     return(
       <form>
+        <div class="newpoll">
+          <h3> SUBMIT NEW POLL </h3>
+        </div>
         <div id="form">
         <input type="submit" value="SUBMIT" onClick={this.handleSubmit} />
         <label>Question</label>
