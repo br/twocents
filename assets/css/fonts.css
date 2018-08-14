@@ -1,0 +1,52 @@
+/* Effra styles */
+
+@font-face {
+    font-family: 'Effra';
+    font-weight: 300; // Light
+    src:url("https://static-assets.bleacherreport.com/fonts/effra/effra-light.woff2") format('woff2'), url("https://static-assets.bleacherreport.com/fonts/effra/effra-light.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'Effra';
+    font-weight: 400; // Regular
+    src:url("https://static-assets.bleacherreport.com/fonts/effra/effra-regular.woff2") format('woff2'), url("https://static-assets.bleacherreport.com/fonts/effra/effra-regular.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'Effra';
+    font-weight: 500; // Medium
+    src:url("https://static-assets.bleacherreport.com/fonts/effra/effra-medium.woff2") format('woff2'), url("https://static-assets.bleacherreport.com/fonts/effra/effra-medium.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'Effra';
+    font-weight: 700; // Bold
+    src:url("https://static-assets.bleacherreport.com/fonts/effra/effra-bold.woff2") format('woff2'), url("https://static-assets.bleacherreport.com/fonts/effra/effra-bold.woff") format('woff');
+}
+
+/* Proxima Nova styles */
+
+@font-face {
+    font-family: 'Proxima Nova';
+    font-weight: 400; // Regular
+    src:url("https://static-assets.bleacherreport.com/fonts/proxima-nova/proxima-nova-regular.woff2") format('woff2'), url("https://static-assets.bleacherreport.com/fonts/proxima-nova/proxima-nova-regular.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    font-weight: 400; // Regular
+    font-style: italic;
+    src:url("https://static-assets.bleacherreport.com/fonts/proxima-nova/proxima-nova-regular-italic.woff2") format('woff2'), url("https://static-assets.bleacherreport.com/fonts/proxima-nova/proxima-nova-regular-italic.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    font-weight: 500; // Medium
+    src:url("https://static-assets.bleacherreport.com/fonts/proxima-nova/proxima-nova-medium.woff2") format('woff2'), url("https://static-assets.bleacherreport.com/fonts/proxima-nova/proxima-nova-medium.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    font-weight: 700; // Bold
+    src:url("https://static-assets.bleacherreport.com/fonts/proxima-nova/proxima-nova-bold.woff2") format('woff2'), url("https://static-assets.bleacherreport.com/fonts/proxima-nova/proxima-nova-bold.woff") format('woff');
+}

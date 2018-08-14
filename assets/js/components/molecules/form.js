@@ -60,7 +60,7 @@ class Form extends React.Component {
     console.log("calling createPoll");
     //formats question and choices appropriately for html POST request
     createPoll(this.state.question, this.state.choices);
-    debugger;
+    alert("Poll has been submitted!");
   }
   //When user clicks Add Choices button
   addChoices(){
@@ -78,13 +78,14 @@ class Form extends React.Component {
     const choices = this.state.choices;
     return(
       <form>
-        <input type="submit" value="Submit" onClick={this.handleSubmit} />
+        <div id="form">
+        <input type="submit" value="SUBMIT" onClick={this.handleSubmit} />
         <label>Question</label>
         <Question
           handleQuestionChange={handleQuestionChange}
           value={question} />
         <label>Choices</label>
-        <input type="button" value="Add Choices" id="more_choices" disabled={this.state.choices.length >= 4} onClick={this.addChoices} />
+        <input type="button" value="ADD CHOICES" id="more_choices" disabled={this.state.choices.length >= 4} onClick={this.addChoices} />
         <div id="defaultchoices">
           {this.state.choices.map(function(choice, idx) {
             return <Choice
@@ -94,6 +95,7 @@ class Form extends React.Component {
               value={choices[idx]}
             />;
           })}
+        </div>
         </div>
       </form>
     );

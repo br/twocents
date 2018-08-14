@@ -21,4 +21,23 @@ const createPoll = (question, choices) => {
   })
 };
 
-export { createPoll };
+const getOnePoll = (id) => {
+  return fetch(`http://0.0.0.0:4000/test/polls/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then((res) => res.json());
+}
+
+
+const getAllPolls = () => {
+  return fetch("http://0.0.0.0:4000/test/polls", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then((res) => res.json());
+}
+
+export { createPoll, getAllPolls, getOnePoll };

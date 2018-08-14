@@ -16,12 +16,43 @@ import "phoenix_html"
 import "react-phoenix"
 import React from "react"
 import ReactDOM from "react-dom"
-import Form from './components/molecules/form';
-import Display from './components/molecules/display';
+import Form from './components/molecules/form'; //createPoll
+import Display from './components/organisms/display';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      view: "create"
+    };
+    this.toggleView = this.toggleView.bind(this);
+  }
+
+  toggleView(){
+    this.setState((prevState) => {
+      const view = prevState.view === "create" ? "display" : "create";
+      return {view};
+    })
+  }
+
   render() {
-    return (<Form />);
+    if (this.state.view === "create") {
+      return (<div>
+                <Form />
+                <button onClick={this.toggleView}>Toggle</button>
+              </div>);
+    }
+    else if(this.state.view === "display"){
+      return (
+        <div>
+        <Display/>
+        <button onClick={this.toggleView}>Toggle</button>
+        </div>
+      );
+    }
+    else {
+      return false;
+    }
   }
 }
 
@@ -30,16 +61,6 @@ ReactDOM.render(
   document.getElementById("root")
 )
 
-class Show extends React.Component {
-  render() {
-    return(<Display />);
-  }
-}
-
-ReactDOM.render(
-  <Show/>,
-  document.getElementById("polldisplay")
-)
 // Import local files
 //
 // Local files can be imported directly using relative
