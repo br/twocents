@@ -87,9 +87,9 @@ class Form extends React.Component {
         <Question
           handleQuestionChange={handleQuestionChange}
           value={question} />
-        <label>Choices</label>
         <input type="button" value="ADD CHOICES" id="more_choices" disabled={this.state.choices.length >= 4} onClick={this.addChoices} />
         <div id="defaultchoices">
+          <label>Choices</label>
           {this.state.choices.map(function(choice, idx) {
             return <Choice
               handleChoiceChange={handleChoiceChange}
