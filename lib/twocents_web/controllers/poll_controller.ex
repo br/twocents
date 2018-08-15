@@ -9,7 +9,7 @@ defmodule TwocentsWeb.PollController do
   alias Twocents.{Repo, Poll, Choice}
 
   plug :scrub_params, "poll" when action in [:create, :update]
-
+  # Shows contents of whole database
   def index(conn, _params) do
     polls = Poll
     |> Repo.all()
@@ -17,15 +17,7 @@ defmodule TwocentsWeb.PollController do
     conn
     |> render("index.json", polls: polls)
   end
-
-  def new(conn, _params) do
-    changeset =
-      Poll.changeset(%Poll{})
-
-    conn
-    |> render("new.json", changeset: changeset)
-  end
-
+   
   def create(conn, %{"poll" => poll_params}) do
     changeset = Poll.changeset(%Poll{}, poll_params)
     case Repo.insert(changeset) do
@@ -62,7 +54,6 @@ defmodule TwocentsWeb.PollController do
     case Repo.update(changeset) do
       {:ok, poll} ->
         conn
-        #|> put_flash(:info, "Poll updated successfully.")
         |> redirect(to: poll_path(conn, :show, poll))
       {:error, changeset} ->
         conn
@@ -73,9 +64,7 @@ defmodule TwocentsWeb.PollController do
   def delete(conn, %{"id" => id}) do
     poll = Repo.get!(Poll, id)
     Repo.delete!(poll)
-
     conn
-    #|> put_flash(:info, "Poll deleted successfully.")
     |> redirect(to: poll_path(conn, :index))
   end
 end
