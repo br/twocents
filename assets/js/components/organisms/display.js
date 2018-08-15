@@ -17,12 +17,6 @@ class Display extends React.Component {
     this.getPolls();
   }
 
-  // pollComponent(){
-  //  // Display database in uniform format
-  //
-  // }
-  //
-
   async getPolls() {
     var res = await getAllPolls();
     this.setState({ polls: res.data })
