@@ -15,10 +15,17 @@ class Display extends React.Component {
   componentDidMount(){
     this.getPolls();
   }
- //create component pollComponent
- pollComponent(){
 
- }
+  // pollComponent(){
+  //  // Display database in uniform format
+  //  var polls = this.state.polls ? JSON.stringify(this.state.polls, null, 2) : "";
+  //
+  // }
+  //
+  // async getPoll() {
+  //   var res = await getOnePoll();
+  //   this.setState({ })
+  // }
 
   async getPolls() {
     var res = await getAllPolls();
@@ -31,8 +38,8 @@ class Display extends React.Component {
     return (
       <div>
         <h3> SHOW ALL POLLS </h3>
-        <p>Display</p>
-        { polls } //display pollComponent here
+        <p>------DATABASE------</p>
+        { polls }
       </div>
     );
   }

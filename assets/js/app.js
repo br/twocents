@@ -27,7 +27,7 @@ class App extends React.Component {
     };
     this.toggleView = this.toggleView.bind(this);
   }
-
+  // Toggles page between create and display state
   toggleView(){
     this.setState((prevState) => {
       const view = prevState.view === "create" ? "display" : "create";
@@ -38,7 +38,7 @@ class App extends React.Component {
   render() {
     if (this.state.view === "create") {
       return (<div>
-                <Form />
+                <Form />              
                 <button onClick={this.toggleView}>Toggle</button>
               </div>);
     }
