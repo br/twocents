@@ -13,7 +13,7 @@ const createPoll = (question, choices) => {
     }
   };
   // Add new poll to database
-  return fetch("http://two-cents.1bleacherreport.com/test/polls", { //http://two-cents.1bleacherreport.com/test/polls
+  return fetch("http://two-cents.1bleacherreport.com/test/polls", {
     body: JSON.stringify(payload),
     method: "POST",
     headers: {
