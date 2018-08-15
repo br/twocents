@@ -21,16 +21,6 @@ config :twocents, TwocentsWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :twocents, TwocentsWeb.Endpoint,
-  live_reload: [
-    patterns: [
-      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
-      ~r{priv/gettext/.*(po)$},
-      ~r{lib/twocents_web/views/.*(ex)$},
-      ~r{lib/twocents_web/templates/.*(eex)$}
-    ]
-  ]
-
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
