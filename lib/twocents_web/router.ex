@@ -17,14 +17,18 @@ defmodule TwocentsWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    # UP-CHECK
     get "/up", UpController, :index
   end
 
   # Other scopes may use custom stacks.
    scope "/test", TwocentsWeb do
      pipe_through :api
+     # Shows whole database and individual polls ( test/polls/${poll_id} )
      resources "/polls", PollController
+     # Add a new poll to the database
      post "/polls", PollController, :create
+     # Increment vote for choice in a poll
      put "/polls", PollController, :update
    end
 end

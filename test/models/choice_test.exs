@@ -16,12 +16,11 @@ defmodule Twocents.ChoiceTest do
 
     {:ok, poll: poll}
   end
+  test "retrieve choice counts", context do
+    poll = Poll
+    |> Repo.get(context[:poll].id)
+    |> Repo.preload(:choices)
 
-  # test "retrieve choice counts", context do
-  #   poll = Poll
-  #   |> Repo.get(context[:poll].id)
-  #   |> Repo.preload(:choices)
-  #
-  #   assert Enum.count(poll.choices) == 2
-  # end
+    assert Enum.count(poll.choices) == 2
+  end
 end

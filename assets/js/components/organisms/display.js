@@ -1,7 +1,7 @@
 import React from "react";
 import { getAllPolls, getOnePoll } from "../../api/twocents_api";
 /*
-Displays interactive poll
+Displays whole database and individual polls
 */
 class Display extends React.Component {
   constructor(props) {
@@ -16,6 +16,10 @@ class Display extends React.Component {
     this.getPolls();
   }
  //create component pollComponent
+ pollComponent(){
+
+ }
+
   async getPolls() {
     var res = await getAllPolls();
     this.setState({ polls: res })
