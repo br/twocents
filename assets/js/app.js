@@ -36,12 +36,14 @@ class App extends React.Component {
   }
 
   render() {
+    // New poll form visible if state = "create"
     if (this.state.view === "create") {
       return (<div>
-                <Form />              
+                <Form />
                 <button onClick={this.toggleView}>Toggle</button>
               </div>);
     }
+    // Shows buttons with titles of all polls in datatbase 
     else if(this.state.view === "display"){
       return (
         <div>
