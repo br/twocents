@@ -2,7 +2,7 @@ import React from "react";
 import { getAllPolls, getOnePoll } from "../../api/twocents_api";
 import PollWithResults from "../molecules/pollwithresults";
 /*
-Displays whole database and individual polls
+Displays individual poll titles in entire database
 */
 class Display extends React.Component {
   constructor(props) {
