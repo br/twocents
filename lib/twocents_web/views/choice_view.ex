@@ -8,7 +8,7 @@ defmodule TwocentsWeb.ChoiceView do
   def render("choice.json", %{choice: choice}) do
     %{
       title: choice.title,
-      id: choice.id,
+      choice_id: choice.id,
       votes: choice.votes
     }
   end

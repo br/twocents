@@ -10,8 +10,9 @@ RUN rm -rf _build deps
 EXPOSE 4000
 
 ENV PORT 4000
-  
-ENV MIX_ENV dev
+
+ARG MIX_ENV=prod
+ENV MIX_ENV $MIX_ENV
 
 RUN apk --update --no-cache add --virtual .app-build make && \
     apk --update --no-cache add git && \
@@ -32,6 +33,6 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-RUN npm install brunch -g && brunch build --production assets/
+RUN npm install brunch -g && npm install yarn -g && cd assets && brunch build
 
 CMD ["mix", "phoenix.server"]

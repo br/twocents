@@ -13,6 +13,56 @@
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
 
+import "react-phoenix"
+import React from "react"
+import ReactDOM from "react-dom"
+import Form from './components/molecules/form'; //createPoll
+import Display from './components/organisms/display';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      view: "create"
+    };
+    this.toggleView = this.toggleView.bind(this);
+  }
+  // Toggles page between create and display state
+  toggleView(){
+    this.setState((prevState) => {
+      const view = prevState.view === "create" ? "display" : "create";
+      return {view};
+    })
+  }
+
+  render() {
+    // New poll form visible if state = "create"
+    if (this.state.view === "create") {
+      return (<div>
+                <Form />
+                <button onClick={this.toggleView}>Toggle</button>
+              </div>);
+    }
+    // Shows buttons with titles of all polls in datatbase 
+    else if(this.state.view === "display"){
+      return (
+        <div>
+        <Display/>
+        <button onClick={this.toggleView}>Toggle</button>
+        </div>
+      );
+    }
+    else {
+      return false;
+    }
+  }
+}
+
+ReactDOM.render(
+  <App/>,
+  document.getElementById("root")
+)
+
 // Import local files
 //
 // Local files can be imported directly using relative
